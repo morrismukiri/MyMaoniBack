@@ -17,8 +17,7 @@ class UserRepository extends BaseRepository
         'gender',
         'address',
         'dob',
-        'email',
-        'password'
+        'email'
     ];
 
     /**

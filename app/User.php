@@ -34,10 +34,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class User extends Authenticatable
 {
-    use Notifiable, SoftDeletes;
+    use Notifiable;
 
-     public $table = 'users';
-    
+    public $table = 'users';
+
 
     protected $dates = ['deleted_at'];
 
@@ -47,8 +47,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','username','phone','gender','address','dob'
-        ];
+        'name', 'email', 'password', 'username', 'phone', 'gender', 'address', 'dob'
+    ];
 
 
     /**
@@ -69,6 +69,20 @@ class User extends Authenticatable
 
 
     /**
+     * Validation rules
+     *
+     * @var array
+     */
+    public static $rules = [
+        'name' => 'required',
+        'username' => 'required|alpha_dash|max:15|unique:users',
+        'phone' => 'required|unique:users',
+        'gender' => 'required',
+        'email' => 'required|email:unique:users',
+        'password' => 'required'
+    ];
+
+    /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
@@ -76,4 +90,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function setPasswordAttribute($password)
+    {
+
+        if ($password !== null) {
+            if (is_null(request()->bcrypt)) {
+                $this->attributes['password'] = bcrypt($password);
+            } else {
+                $this->attributes['password'] = $password;
+            }
+        }
+    }
 }
