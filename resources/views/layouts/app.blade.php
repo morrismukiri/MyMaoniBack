@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="/bower_components/ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="/bower_components/admin-lte/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="/bower_components/admin-lte/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+
 
 
     @yield('css')
@@ -145,7 +147,31 @@
     <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/bower_components/select2/dist/js/select2.min.js"></script>
     <!-- AdminLTE App -->
+
+    <script src="/bower_components/iCheck/icheck.min.js"></script>
+
+
+    <!-- AdminLTE App -->
     <script src="/bower_components/admin-lte/dist/js/app.min.js"></script>
+    <script src="/bower_components/admin-lte/plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <script>
+        $(function () {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%' // optional
+            });
+
+            $('.datepicker').datepicker({
+                format: 'yyyy-mm-dd'
+            });
+            $('.dateTimePicker').datetimepicker({
+                'format':'YYYY-MM-DD HH:mm:SS'
+            });
+        });
+    </script>
 
     @yield('scripts')
 </body>

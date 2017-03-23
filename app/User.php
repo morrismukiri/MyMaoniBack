@@ -102,4 +102,7 @@ class User extends Authenticatable
             }
         }
     }
+    public function polls(){
+        return $this->hasMany(\App\Models\Poll::class,'userId','id');
+    }
 }

@@ -11,7 +11,7 @@
         "inIndex": false
     },
     {
-        "name": "name",
+        "name": "title",
         "dbType": "string",
         "htmlType": "text",
         "validations": "required",
@@ -22,42 +22,9 @@
         "inIndex": true
     },
     {
-        "name": "username",
-        "dbType": "string:unique",
-        "htmlType": null,
-        "validations": "required,alpha_dash,max:15",
-        "searchable": true,
-        "fillable": true,
-        "primary": false,
-        "inForm": true,
-        "inIndex": true
-    },
-    {
-        "name": "phone",
-        "dbType": "string",
-        "htmlType": "text",
-        "validations": "required|unique:users",
-        "searchable": true,
-        "fillable": true,
-        "primary": false,
-        "inForm": true,
-        "inIndex": true
-    },
-    {
-        "name": "gender",
-        "dbType": "string",
-        "htmlType": "radio,Male,Female",
-        "validations": "required",
-        "searchable": true,
-        "fillable": true,
-        "primary": false,
-        "inForm": true,
-        "inIndex": true
-    },
-    {
-        "name": "address",
-        "dbType": "string",
-        "htmlType": "text",
+        "name": "description",
+        "dbType": "text",
+        "htmlType": "textarea",
         "validations": "",
         "searchable": true,
         "fillable": true,
@@ -66,8 +33,8 @@
         "inIndex": true
     },
     {
-        "name": "dob",
-        "dbType": "date",
+        "name": "openTime",
+        "dbType": "dateTime",
         "htmlType": "date",
         "validations": "",
         "searchable": true,
@@ -77,10 +44,10 @@
         "inIndex": true
     },
     {
-        "name": "email",
-        "dbType": "string:unique",
-        "htmlType": "email",
-        "validations": "required|email",
+        "name": "closeTime",
+        "dbType": "dateTime",
+        "htmlType": "date",
+        "validations": "required",
         "searchable": true,
         "fillable": true,
         "primary": false,
@@ -88,9 +55,31 @@
         "inIndex": true
     },
     {
-        "name": "password",
+        "name": "targetGroup",
+        "dbType": "integer",
+        "htmlType": "select,1,2,3 ",
+        "validations": "",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true
+    },
+    {
+        "name": "type",
         "dbType": "string",
-        "htmlType": "password",
+        "htmlType": "radio,open,closed",
+        "validations": "",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true
+    },
+    {
+        "name": "userId",
+        "dbType": "integer",
+        "htmlType": "select",
         "validations": "required",
         "searchable": true,
         "fillable": true,
