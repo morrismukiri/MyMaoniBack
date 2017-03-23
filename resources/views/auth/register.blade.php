@@ -12,19 +12,24 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     <!-- Bootstrap 3.3.6 -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
 
     <!-- Ionicons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="bower_components/ionicons/css/ionicons.min.css">
 
     <!-- Theme style -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.3/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="bower_components/admin-lte/dist/css/AdminLTE.min.css">
 
     <!-- iCheck -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.3/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="bower_components/iCheck/skins/square/_all.css">
+    
+    <!-- BootstrapDatepicker -->
+    <link rel="stylesheet" href="bower_components/admin-lte/plugins/datepicker/datepicker3.css">
+
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -57,6 +62,7 @@
                 @endif
             </div>
 
+            <!--- email -->
             <div class="form-group has-feedback{{ $errors->has('email') ? ' has-error' : '' }}">
                 <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -67,6 +73,74 @@
                     </span>
                 @endif
             </div>
+            <!--- end email -->
+            
+            <!--- username -->
+            <div class="form-group has-feedback{{ $errors->has('username') ? ' has-error' : '' }}">
+                <input type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="username">
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                @if ($errors->has('username'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('username') }}</strong>
+                    </span>
+                @endif
+            </div>
+            <!--- end username -->
+
+             <!--- phone -->
+            <div class="form-group has-feedback{{ $errors->has('phone') ? ' has-error' : '' }}">
+                <input type="tel" class="form-control" name="phone" value="{{ old('phone') }}" placeholder="phone">
+                <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+
+                @if ($errors->has('phone'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('phone') }}</strong>
+                    </span>
+                @endif
+            </div>
+            <!--- end phone -->
+            
+             <!--- dob -->
+            <div class="form-group  has-feedback{{ $errors->has('dob') ? ' has-error' : '' }}">
+                <input type="text" class="form-control datepicker" name="dob" value="{{ old('dob') }}"  data-provide="datepicker" >
+                <span class="glyphicon glyphicon-th form-control-feedback"></span>
+
+                @if ($errors->has('dob'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('dob') }}</strong>
+                    </span>
+                @endif
+            </div>
+            <!--- end dob -->
+
+            <!--- gender -->
+            <div class="form-group has-feedback{{ $errors->has('gender') ? ' has-error' : '' }}">
+                <label class="radio-inline">
+                    Male <input type="radio" name="gender" id="gender" value="male">
+                </label>
+                <label class="radio-inline">
+                    Female <input type="radio" name="gender" id="gender" value="female">
+                </label>              
+                
+                @if ($errors->has('gender'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('gender') }}</strong>
+                    </span>
+                @endif
+            </div>
+            <!--- end gender -->
+
+            <!--- address -->
+            <div class="form-group has-feedback{{ $errors->has('address') ? ' has-error' : '' }}">
+                <input type="text" class="form-control" name="address" value="{{ old('address') }}" placeholder="address">
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                @if ($errors->has('address'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('address') }}</strong>
+                    </span>
+                @endif
+            </div>
+            <!--- end address -->
 
             <div class="form-group has-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
                 <input type="password" class="form-control" name="password" placeholder="Password">
@@ -112,19 +186,24 @@
 </div>
 <!-- /.register-box -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/iCheck/icheck.min.js"></script>
+
 
 <!-- AdminLTE App -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.3/js/app.min.js"></script>
-
+<script src="bower_components/admin-lte/dist/js/app.min.js"></script>
+<script src="bower_components/admin-lte/plugins/datepicker/bootstrap-datepicker.js"></script>
 <script>
     $(function () {
         $('input').iCheck({
             checkboxClass: 'icheckbox_square-blue',
             radioClass: 'iradio_square-blue',
             increaseArea: '20%' // optional
+        });
+        
+         $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd'
         });
     });
 </script>

@@ -1,0 +1,42 @@
+{
+  "name": "MyMaoniBack",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Morris Mukiri <morrismukiri@gmail.com>"
+  ],
+  "license": "MIT",
+  "directory": "public/bower_components",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "source",
+    "spec",
+    ".bowerrc",
+    ".gitignore",
+    ".jshintignore",
+    ".jshintrc",
+    "bower.json",
+    "gruntfile.js",
+    "package.json",
+    "README.md",
+    "doc",
+    "docs",
+    ".html"
+  ],
+  "dependencies": {
+    "jquery": "1.12.0",
+    "bootstrap": "3.3.6",
+    "font-awesome": "4.5.0",
+    "select2": "4.0.2",
+    "admin-lte": "2.3.3",
+    "ionicons": "2.0.1",
+    "iCheck": "1.0.2"
+  }
+}

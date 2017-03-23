@@ -12,6 +12,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property string $name
  * @property string $email
  * @property string $password
+ * @property string $username
+ * @property string $phone
+ * @property string $gender
+ * @property string $address
+ * @property date $dob
  * @property string $remember_token
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
@@ -36,8 +41,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
-    ];
+        'name', 'email', 'password','username','phone','gender','address','dob'
+        ];
 
     /**
      * The attributes that should be hidden for arrays.
