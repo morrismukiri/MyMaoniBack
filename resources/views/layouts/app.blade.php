@@ -5,14 +5,14 @@
     <title>My Maoni Admin</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/bower_components/select2/dist/css/select2.min.css">
     
     <!-- Ionicons -->
-    <link rel="stylesheet" href="bower_components/ionicons/css/ionicons.min.css">
-    <link rel="stylesheet" href="bower_components/admin-lte/dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="bower_components/admin-lte/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="/bower_components/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="/bower_components/admin-lte/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="/bower_components/admin-lte/dist/css/skins/_all-skins.min.css">
 
 
     @yield('css')
@@ -141,11 +141,11 @@
     @endif
 
     <!-- jQuery 2.1.4 -->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="bower_components/select2/dist/js/select2.min.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/bower_components/select2/dist/js/select2.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="bower_components/admin-lte/dist/js/app.min.js"></script>
+    <script src="/bower_components/admin-lte/dist/js/app.min.js"></script>
 
     @yield('scripts')
 </body>

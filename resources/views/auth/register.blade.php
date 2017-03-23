@@ -12,22 +12,22 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     <!-- Bootstrap 3.3.6 -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
 
     <!-- Ionicons -->
-    <link rel="stylesheet" href="bower_components/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="/bower_components/ionicons/css/ionicons.min.css">
 
     <!-- Theme style -->
-    <link rel="stylesheet" href="bower_components/admin-lte/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="/bower_components/admin-lte/dist/css/AdminLTE.min.css">
 
     <!-- iCheck -->
-    <link rel="stylesheet" href="bower_components/iCheck/skins/square/_all.css">
+    <link rel="stylesheet" href="/bower_components/iCheck/skins/square/_all.css">
     
     <!-- BootstrapDatepicker -->
-    <link rel="stylesheet" href="bower_components/admin-lte/plugins/datepicker/datepicker3.css">
+    <link rel="stylesheet" href="/bower_components/admin-lte/plugins/datepicker/datepicker3.css">
 
 
 
@@ -186,14 +186,14 @@
 </div>
 <!-- /.register-box -->
 
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="bower_components/iCheck/icheck.min.js"></script>
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/bower_components/iCheck/icheck.min.js"></script>
 
 
 <!-- AdminLTE App -->
-<script src="bower_components/admin-lte/dist/js/app.min.js"></script>
-<script src="bower_components/admin-lte/plugins/datepicker/bootstrap-datepicker.js"></script>
+<script src="/bower_components/admin-lte/dist/js/app.min.js"></script>
+<script src="/bower_components/admin-lte/plugins/datepicker/bootstrap-datepicker.js"></script>
 <script>
     $(function () {
         $('input').iCheck({
