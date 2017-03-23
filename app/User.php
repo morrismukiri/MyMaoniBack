@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * App\User
@@ -33,7 +34,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  */
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, SoftDeletes;
+
+     public $table = 'users';
+    
+
+    protected $dates = ['deleted_at'];
 
     /**
      * The attributes that are mass assignable.
@@ -43,6 +49,24 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password','username','phone','gender','address','dob'
         ];
+
+
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'name' => 'string',
+        'username' => 'string',
+        'phone' => 'string',
+        'gender' => 'string',
+        'address' => 'string',
+        'dob' => 'date',
+        'email' => 'string',
+        'password' => 'string'
+    ];
+
 
     /**
      * The attributes that should be hidden for arrays.
