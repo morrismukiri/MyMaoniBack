@@ -2,9 +2,9 @@
     <thead>
         <th>Title</th>
         <th>Description</th>
-        <th>Opentime</th>
-        <th>Closetime</th>
-        <th>Targetgroup</th>
+        <th>Open time</th>
+        <th>Close time</th>
+        <th>Target group</th>
         <th>Type</th>
         <th>Posted by</th>
         <th colspan="3">Action</th>

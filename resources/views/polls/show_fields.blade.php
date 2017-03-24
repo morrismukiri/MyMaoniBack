@@ -13,7 +13,7 @@
 <!-- Description Field -->
 <div class="form-group">
     {!! Form::label('description', 'Description:') !!}
-    <p>{!! $poll->description !!}</p>
+    <p>{!! str_limit($poll->description,50) !!}</p>
 </div>
 
 <!-- Opentime Field -->
