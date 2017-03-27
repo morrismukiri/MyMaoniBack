@@ -100,5 +100,8 @@ class Poll extends Model
     public function user(){
         return $this->belongsTo(\App\User::class, 'userId','id');
     }
-    
+    public function opinions(){
+        return $this->hasMany(\App\Models\Opinion::class, 'pollId','id');
+    }
+
 }

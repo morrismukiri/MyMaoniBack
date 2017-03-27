@@ -24,3 +24,9 @@ Route::get('/home', 'HomeController@index');
 Route::resource('users', 'UserController');
 
 Route::resource('polls', 'PollController');
+
+
+
+
+
+Route::resource('opinions', 'OpinionController');

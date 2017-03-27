@@ -19,3 +19,9 @@ Route::get('/user', function (Request $request) {
 
 
 Route::resource('polls', 'PollAPIController');
+
+
+
+
+
+Route::resource('opinions', 'OpinionAPIController');

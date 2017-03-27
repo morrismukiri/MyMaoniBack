@@ -105,4 +105,7 @@ class User extends Authenticatable
     public function polls(){
         return $this->hasMany(\App\Models\Poll::class,'userId','id');
     }
+    public function opinions(){
+        return $this->hasMany(\App\Models\Opinion::class, 'userID','id');
+    }
 }

@@ -6,3 +6,9 @@
     <a href="{!! route('polls.index') !!}"><i class="fa fa-edit"></i><span>Polls</span></a>
 </li>
 
+
+
+<li class="{{ Request::is('opinions*') ? 'active' : '' }}">
+    <a href="{!! route('opinions.index') !!}"><i class="fa fa-edit"></i><span>Opinions</span></a>
+</li>
+
