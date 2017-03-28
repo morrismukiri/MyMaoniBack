@@ -30,3 +30,5 @@ Route::resource('polls', 'PollController');
 
 
 Route::resource('opinions', 'OpinionController');
+
+Route::resource('categories', 'CategoryController');
