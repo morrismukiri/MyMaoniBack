@@ -44,9 +44,9 @@ trait MakeOpinionTrait
         return array_merge([
             'userId' => $fake->randomDigitNotNull,
             'pollId' => $fake->randomDigitNotNull,
-            'comment' => $fake->word,
-            'created_at' => $fake->word,
-            'updated_at' => $fake->word
+            'comment' => $fake->sentence(10),
+            'created_at' => $fake->dateTime,
+            'updated_at' => $fake->dateTime
         ], $opinionFields);
     }
 }

@@ -40,17 +40,17 @@ trait MakePollTrait
     public function fakePollData($pollFields = [])
     {
         $fake = Faker::create();
-
+        $types=['open','closed'];
         return array_merge([
             'title' => $fake->word,
             'description' => $fake->text,
-            'openTime' => $fake->word,
-            'closeTime' => $fake->word,
+            'openTime' => $fake->dateTime,
+            'closeTime' => $fake->dateTime,
             'targetGroup' => $fake->randomDigitNotNull,
-            'type' => $fake->word,
+            'type' => $fake->randomElement($types),
             'userId' => $fake->randomDigitNotNull,
-            'created_at' => $fake->word,
-            'updated_at' => $fake->word
+            'created_at' => $fake->dateTime,
+            'updated_at' => $fake->dateTime
         ], $pollFields);
     }
 }

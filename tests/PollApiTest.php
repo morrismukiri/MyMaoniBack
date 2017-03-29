@@ -1,7 +1,10 @@
 <?php
-
+//namespace tests;
+//use ApiTestTrait;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+//use MakePollTrait;
+
 
 class PollApiTest extends TestCase
 {

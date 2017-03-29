@@ -45,8 +45,8 @@ trait MakeCategoryTrait
             'name' => $fake->word,
             'description' => $fake->text,
             'parentId' => $fake->randomDigitNotNull,
-            'created_at' => $fake->word,
-            'updated_at' => $fake->word
+            'created_at' => $fake->dateTime,
+            'updated_at' => $fake->dateTime
         ], $categoryFields);
     }
 }
