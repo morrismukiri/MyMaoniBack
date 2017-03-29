@@ -83,5 +83,8 @@ class Category extends Model
     public function children(){
         return $this->hasMany($this,'parentId','id');
     }
+    public function polls(){
+        return $this->hasMany(Poll::class,'categoryId','id');
+    }
 
 }

@@ -16,6 +16,7 @@ class CreatePollsTable extends Migration
         Schema::create('polls', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
+            $table->integer('categoryId')->unsigned();
             $table->text('description');
             $table->dateTime('openTime');
             $table->dateTime('closeTime');
