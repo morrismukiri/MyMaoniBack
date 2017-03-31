@@ -11,16 +11,11 @@
 |
 */
 
-$factory->define(App\Models\Poll::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Category::class, function (Faker\Generator $faker) {
 
     return [
-        'title' => $faker->word,
+        'name' => $faker->word(),
         'description' => $faker->text,
-        'categoryId' => factory(\App\Models\Category::class)->create()->id, //$faker->randomDigitNotNull,
-        'openTime' => $faker->dateTime,
-        'closeTime' => $faker->dateTime,
-        'targetGroup' => $faker->randomDigitNotNull,
-        'type' => $faker->randomElement(['open','closed']),
-        'userId' => $faker->randomDigitNotNull
+        'parentId' =>0,
     ];
 });
