@@ -2,6 +2,7 @@
     <thead>
         <th>Title</th>
         <th>Description</th>
+        <th>Category</th>
         <th>Open time</th>
         <th>Close time</th>
         <th>Target group</th>
@@ -13,7 +14,8 @@
     @foreach($polls as $poll)
         <tr>
             <td>{!! $poll->title !!}</td>
-            <td>{!! $poll->description !!}</td>
+            <td>{!! str_limit($poll->description, $limit = 140, $end = '...') !!}</td>
+            <td>{!! $poll->category->name !!}</td>
             <td>{!! $poll->openTime !!}</td>
             <td>{!! $poll->closeTime !!}</td>
             <td>{!! $poll->targetGroup !!}</td>

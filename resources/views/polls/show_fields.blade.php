@@ -1,9 +1,3 @@
-<!-- Id Field -->
-<div class="form-group">
-    {!! Form::label('id', 'Id:') !!}
-    <p>{!! $poll->id !!}</p>
-</div>
-
 <!-- Title Field -->
 <div class="form-group">
     {!! Form::label('title', 'Title:') !!}
@@ -13,18 +7,24 @@
 <!-- Description Field -->
 <div class="form-group">
     {!! Form::label('description', 'Description:') !!}
-    <p>{!! str_limit($poll->description,50) !!}</p>
+    <p>{!! $poll->description !!}</p>
+</div>
+
+<!-- Category Field -->
+<div class="form-group">
+    {!! Form::label('category', 'Category:') !!}
+    <p>{!! $poll->category->name !!}</p>
 </div>
 
 <!-- Opentime Field -->
 <div class="form-group">
-    {!! Form::label('openTime', 'Opentime:') !!}
+    {!! Form::label('openTime', 'Opening time:') !!}
     <p>{!! $poll->openTime !!}</p>
 </div>
 
 <!-- Closetime Field -->
 <div class="form-group">
-    {!! Form::label('closeTime', 'Closetime:') !!}
+    {!! Form::label('closeTime', 'Closing time:') !!}
     <p>{!! $poll->closeTime !!}</p>
 </div>
 

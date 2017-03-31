@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreatePollRequest;
 use App\Http\Requests\UpdatePollRequest;
+use App\Models\Category;
 use App\Repositories\PollRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -44,7 +45,10 @@ class PollController extends AppBaseController
      */
     public function create()
     {
-        return view('polls.create');
+        $categories = Category::pluck('name', 'id')->all();
+
+        $categories=array(0=>'None')+$categories;
+        return view('polls.create')->with(compact('categories'));
     }
 
     /**
@@ -102,8 +106,10 @@ class PollController extends AppBaseController
 
             return redirect(route('polls.index'));
         }
+        $categories = Category::pluck('name', 'id')->all();
 
-        return view('polls.edit')->with('poll', $poll);
+        $categories=array(0=>'None')+$categories;
+        return view('polls.edit')->with('poll', $poll)->with(compact('categories'));
     }
 
     /**

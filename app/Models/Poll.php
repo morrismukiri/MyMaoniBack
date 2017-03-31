@@ -25,6 +25,11 @@ use Eloquent as Model;
  *          type="string"
  *      ),
  *      @SWG\Property(
+ *          property="categoryId",
+ *          description="category Id",
+ *          type="integer"
+ *      ),
+ *      @SWG\Property(
  *          property="targetGroup",
  *          description="targetGroup",
  *          type="integer",
@@ -65,6 +70,7 @@ class Poll extends Model
     public $fillable = [
         'title',
         'description',
+        'categoryId',
         'openTime',
         'closeTime',
         'targetGroup',
@@ -80,6 +86,7 @@ class Poll extends Model
     protected $casts = [
         'title' => 'string',
         'description' => 'string',
+        'categoryId'=>'integer',
         'openTime' => 'datetime',
         'closeTime' => 'datetime',
         'targetGroup' => 'integer',
@@ -102,6 +109,9 @@ class Poll extends Model
     }
     public function opinions(){
         return $this->hasMany(\App\Models\Opinion::class, 'pollId','id');
+    }
+    public function category(){
+        return $this->belongsTo(\App\Models\Category::class,'categoryId','id');
     }
 
 }

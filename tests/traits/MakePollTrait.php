@@ -44,6 +44,7 @@ trait MakePollTrait
         return array_merge([
             'title' => $fake->word,
             'description' => $fake->text,
+            'categoryId' => $fake->randomDigitNotNull,
             'openTime' => $fake->dateTime,
             'closeTime' => $fake->dateTime,
             'targetGroup' => $fake->randomDigitNotNull,
