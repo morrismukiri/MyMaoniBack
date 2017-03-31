@@ -12,17 +12,15 @@
 */
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
-    static $password;
-
+    $gender=$faker->randomElement(['male', 'female']);
     return [
-        'name' => $faker->name,
+        'name' => $faker->name($gender),
         'email' => $faker->safeEmail,
-        'username' => $faker->str_random(10),
+        'username' => $faker->userName,
         'phone' => $faker->phoneNumber,
-        'gender' => $faker->randomElements(['male', 'female']),
+        'gender' =>$gender ,
         'address' => $faker->address,
-        'dob' => $faker->dateTimeThisDecade,
-        'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10)
+        'dob' => $faker->date($format = 'Y-m-d', $max = 'now'),
+        'password' => bcrypt('secret')
     ];
 });
