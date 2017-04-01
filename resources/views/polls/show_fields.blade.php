@@ -13,7 +13,7 @@
 <!-- Category Field -->
 <div class="form-group">
     {!! Form::label('category', 'Category:') !!}
-    <p>{!! $poll->category->name !!}</p>
+    <p>{!! $poll->category?$poll->category->name:'None'!!}</p>
 </div>
 
 <!-- Opentime Field -->

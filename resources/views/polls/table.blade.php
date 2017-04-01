@@ -15,7 +15,7 @@
         <tr>
             <td>{!! $poll->title !!}</td>
             <td>{!! str_limit($poll->description, $limit = 140, $end = '...') !!}</td>
-            <td>{!! $poll->category->name !!}</td>
+            <td>{!! $poll->category?$poll->category->name: 'None'!!}</td>
             <td>{!! $poll->openTime !!}</td>
             <td>{!! $poll->closeTime !!}</td>
             <td>{!! $poll->targetGroup !!}</td>
