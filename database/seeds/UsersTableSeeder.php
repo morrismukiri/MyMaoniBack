@@ -26,8 +26,9 @@ class UsersTableSeeder extends Seeder
             'updated_at'=>date("Y-m-d H:i:s")
         ]);
 
-        factory(\App\User::class, 10)->create()->each(function ($u) {
-            $u->polls()->save(factory(App\Models\Poll::class)->make());
-        });
+        factory(\App\User::class, 10)->create();
+        ////        ->each(function ($u) {
+        ////        $u->polls()->save(factory(App\Models\Poll::class)->make());
+        //    })
     }
 }
