@@ -113,5 +113,8 @@ class Poll extends Model
     public function category(){
         return $this->belongsTo(\App\Models\Category::class,'categoryId','id');
     }
+    public function answers(){
+        return $this->hasMany(Answers::class,'pollId','id');
+    }
 
 }

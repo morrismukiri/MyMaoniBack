@@ -70,5 +70,8 @@ class Answers extends Model
         
     ];
 
+    public function poll(){
+        return $this->belongsTo(Poll::class,'pollId','id');
+    }
     
 }

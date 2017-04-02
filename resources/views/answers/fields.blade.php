@@ -1,12 +1,12 @@
 <!-- Pollid Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('pollId', 'Pollid:') !!}
-    {!! Form::select('pollId', ], null, ['class' => 'form-control']) !!}
+    {!! Form::label('pollId', 'Poll:') !!}
+    {!! Form::select('pollId',$polls, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Text Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('text', 'Text:') !!}
+    {!! Form::label('text', 'Answer Text:') !!}
     {!! Form::text('text', null, ['class' => 'form-control']) !!}
 </div>
 

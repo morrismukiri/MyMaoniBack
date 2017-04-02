@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateAnswersRequest;
 use App\Http\Requests\UpdateAnswersRequest;
+use App\Models\Poll;
 use App\Repositories\AnswersRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -43,7 +44,8 @@ class AnswersController extends AppBaseController
      */
     public function create()
     {
-        return view('answers.create');
+        $polls = Poll::pluck('title', 'id')->all();
+        return view('answers.create')->with(compact('polls'));
     }
 
     /**
@@ -101,7 +103,8 @@ class AnswersController extends AppBaseController
             return redirect(route('answers.index'));
         }
 
-        return view('answers.edit')->with('answers', $answers);
+        $polls = Poll::pluck('title', 'id')->all();
+        return view('answers.edit')->with('answers', $answers)->with(compact('polls'));
     }
 
     /**
