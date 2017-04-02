@@ -2,10 +2,10 @@
 
 namespace App\Repositories;
 
-use App\Models\answers;
+use App\Models\Answers;
 use InfyOm\Generator\Common\BaseRepository;
 
-class answersRepository extends BaseRepository
+class AnswersRepository extends BaseRepository
 {
     /**
      * @var array
@@ -20,6 +20,6 @@ class answersRepository extends BaseRepository
      **/
     public function model()
     {
-        return answers::class;
+        return Answers::class;
     }
 }

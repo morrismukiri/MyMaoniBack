@@ -1,43 +1,43 @@
 <?php
 
 use Faker\Factory as Faker;
-use App\Models\answers;
-use App\Repositories\answersRepository;
+use App\Models\Answers;
+use App\Repositories\AnswersRepository;
 
-trait MakeanswersTrait
+trait MakeAnswersTrait
 {
     /**
-     * Create fake instance of answers and save it in database
+     * Create fake instance of Answers and save it in database
      *
      * @param array $answersFields
-     * @return answers
+     * @return Answers
      */
-    public function makeanswers($answersFields = [])
+    public function makeAnswers($answersFields = [])
     {
-        /** @var answersRepository $answersRepo */
-        $answersRepo = App::make(answersRepository::class);
-        $theme = $this->fakeanswersData($answersFields);
+        /** @var AnswersRepository $answersRepo */
+        $answersRepo = App::make(AnswersRepository::class);
+        $theme = $this->fakeAnswersData($answersFields);
         return $answersRepo->create($theme);
     }
 
     /**
-     * Get fake instance of answers
+     * Get fake instance of Answers
      *
      * @param array $answersFields
-     * @return answers
+     * @return Answers
      */
-    public function fakeanswers($answersFields = [])
+    public function fakeAnswers($answersFields = [])
     {
-        return new answers($this->fakeanswersData($answersFields));
+        return new Answers($this->fakeAnswersData($answersFields));
     }
 
     /**
-     * Get fake data of answers
+     * Get fake data of Answers
      *
      * @param array $postFields
      * @return array
      */
-    public function fakeanswersData($answersFields = [])
+    public function fakeAnswersData($answersFields = [])
     {
         $fake = Faker::create();
 

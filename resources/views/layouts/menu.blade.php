@@ -16,7 +16,8 @@
     <a href="{!! route('categories.index') !!}"><i class="fa fa-edit"></i><span>Categories</span></a>
 </li>
 
+
 <li class="{{ Request::is('answers*') ? 'active' : '' }}">
-    <a href="{!! route('answers.index') !!}"><i class="fa fa-edit"></i><span>answers</span></a>
+    <a href="{!! route('answers.index') !!}"><i class="fa fa-edit"></i><span>Answers</span></a>
 </li>
 

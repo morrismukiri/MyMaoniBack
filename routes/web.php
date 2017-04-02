@@ -33,4 +33,4 @@ Route::resource('opinions', 'OpinionController');
 
 Route::resource('categories', 'CategoryController');
 
-Route::resource('answers', 'answersController');
+Route::resource('answers', 'AnswersController');

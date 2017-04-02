@@ -6,8 +6,8 @@ use Eloquent as Model;
 
 /**
  * @SWG\Definition(
- *      definition="answers",
- *      required={"pollId", "text"},
+ *      definition="Answers",
+ *      required={""},
  *      @SWG\Property(
  *          property="id",
  *          description="id",
@@ -39,7 +39,7 @@ use Eloquent as Model;
  *      )
  * )
  */
-class answers extends Model
+class Answers extends Model
 {
 
     public $table = 'answers';
@@ -67,8 +67,7 @@ class answers extends Model
      * @var array
      */
     public static $rules = [
-        'pollId' => 'required',
-        'text' => 'required'
+        
     ];
 
     

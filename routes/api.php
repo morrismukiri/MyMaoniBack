@@ -28,4 +28,4 @@ Route::resource('opinions', 'OpinionAPIController');
 
 Route::resource('categories', 'CategoryAPIController');
 
-Route::resource('answers', 'answersAPIController');
+Route::resource('answers', 'AnswersAPIController');

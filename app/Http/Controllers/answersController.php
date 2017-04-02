@@ -2,27 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateanswersRequest;
-use App\Http\Requests\UpdateanswersRequest;
-use App\Repositories\answersRepository;
+use App\Http\Requests\CreateAnswersRequest;
+use App\Http\Requests\UpdateAnswersRequest;
+use App\Repositories\AnswersRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
-class answersController extends AppBaseController
+class AnswersController extends AppBaseController
 {
-    /** @var  answersRepository */
+    /** @var  AnswersRepository */
     private $answersRepository;
 
-    public function __construct(answersRepository $answersRepo)
+    public function __construct(AnswersRepository $answersRepo)
     {
         $this->answersRepository = $answersRepo;
     }
 
     /**
-     * Display a listing of the answers.
+     * Display a listing of the Answers.
      *
      * @param Request $request
      * @return Response
@@ -37,7 +37,7 @@ class answersController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new answers.
+     * Show the form for creating a new Answers.
      *
      * @return Response
      */
@@ -47,13 +47,13 @@ class answersController extends AppBaseController
     }
 
     /**
-     * Store a newly created answers in storage.
+     * Store a newly created Answers in storage.
      *
-     * @param CreateanswersRequest $request
+     * @param CreateAnswersRequest $request
      *
      * @return Response
      */
-    public function store(CreateanswersRequest $request)
+    public function store(CreateAnswersRequest $request)
     {
         $input = $request->all();
 
@@ -65,7 +65,7 @@ class answersController extends AppBaseController
     }
 
     /**
-     * Display the specified answers.
+     * Display the specified Answers.
      *
      * @param  int $id
      *
@@ -85,7 +85,7 @@ class answersController extends AppBaseController
     }
 
     /**
-     * Show the form for editing the specified answers.
+     * Show the form for editing the specified Answers.
      *
      * @param  int $id
      *
@@ -105,14 +105,14 @@ class answersController extends AppBaseController
     }
 
     /**
-     * Update the specified answers in storage.
+     * Update the specified Answers in storage.
      *
      * @param  int              $id
-     * @param UpdateanswersRequest $request
+     * @param UpdateAnswersRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdateanswersRequest $request)
+    public function update($id, UpdateAnswersRequest $request)
     {
         $answers = $this->answersRepository->findWithoutFail($id);
 
@@ -130,7 +130,7 @@ class answersController extends AppBaseController
     }
 
     /**
-     * Remove the specified answers from storage.
+     * Remove the specified Answers from storage.
      *
      * @param  int $id
      *

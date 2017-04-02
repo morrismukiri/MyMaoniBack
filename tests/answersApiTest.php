@@ -3,16 +3,16 @@
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class answersApiTest extends TestCase
+class AnswersApiTest extends TestCase
 {
-    use MakeanswersTrait, ApiTestTrait, WithoutMiddleware, DatabaseTransactions;
+    use MakeAnswersTrait, ApiTestTrait, WithoutMiddleware, DatabaseTransactions;
 
     /**
      * @test
      */
-    public function testCreateanswers()
+    public function testCreateAnswers()
     {
-        $answers = $this->fakeanswersData();
+        $answers = $this->fakeAnswersData();
         $this->json('POST', '/api/v1/answers', $answers);
 
         $this->assertApiResponse($answers);
@@ -21,9 +21,9 @@ class answersApiTest extends TestCase
     /**
      * @test
      */
-    public function testReadanswers()
+    public function testReadAnswers()
     {
-        $answers = $this->makeanswers();
+        $answers = $this->makeAnswers();
         $this->json('GET', '/api/v1/answers/'.$answers->id);
 
         $this->assertApiResponse($answers->toArray());
@@ -32,22 +32,22 @@ class answersApiTest extends TestCase
     /**
      * @test
      */
-    public function testUpdateanswers()
+    public function testUpdateAnswers()
     {
-        $answers = $this->makeanswers();
-        $editedanswers = $this->fakeanswersData();
+        $answers = $this->makeAnswers();
+        $editedAnswers = $this->fakeAnswersData();
 
-        $this->json('PUT', '/api/v1/answers/'.$answers->id, $editedanswers);
+        $this->json('PUT', '/api/v1/answers/'.$answers->id, $editedAnswers);
 
-        $this->assertApiResponse($editedanswers);
+        $this->assertApiResponse($editedAnswers);
     }
 
     /**
      * @test
      */
-    public function testDeleteanswers()
+    public function testDeleteAnswers()
     {
-        $answers = $this->makeanswers();
+        $answers = $this->makeAnswers();
         $this->json('DELETE', '/api/v1/answers/'.$answers->iidd);
 
         $this->assertApiSuccess();

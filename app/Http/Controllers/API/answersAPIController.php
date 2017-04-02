@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Requests\API\CreateanswersAPIRequest;
-use App\Http\Requests\API\UpdateanswersAPIRequest;
-use App\Models\answers;
-use App\Repositories\answersRepository;
+use App\Http\Requests\API\CreateAnswersAPIRequest;
+use App\Http\Requests\API\UpdateAnswersAPIRequest;
+use App\Models\Answers;
+use App\Repositories\AnswersRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
 use InfyOm\Generator\Criteria\LimitOffsetCriteria;
@@ -13,16 +13,16 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
 /**
- * Class answersController
+ * Class AnswersController
  * @package App\Http\Controllers\API
  */
 
-class answersAPIController extends AppBaseController
+class AnswersAPIController extends AppBaseController
 {
-    /** @var  answersRepository */
+    /** @var  AnswersRepository */
     private $answersRepository;
 
-    public function __construct(answersRepository $answersRepo)
+    public function __construct(AnswersRepository $answersRepo)
     {
         $this->answersRepository = $answersRepo;
     }
@@ -33,9 +33,9 @@ class answersAPIController extends AppBaseController
      *
      * @SWG\Get(
      *      path="/answers",
-     *      summary="Get a listing of the answers.",
-     *      tags={"answers"},
-     *      description="Get all answers",
+     *      summary="Get a listing of the Answers.",
+     *      tags={"Answers"},
+     *      description="Get all Answers",
      *      produces={"application/json"},
      *      @SWG\Response(
      *          response=200,
@@ -49,7 +49,7 @@ class answersAPIController extends AppBaseController
      *              @SWG\Property(
      *                  property="data",
      *                  type="array",
-     *                  @SWG\Items(ref="#/definitions/answers")
+     *                  @SWG\Items(ref="#/definitions/Answers")
      *              ),
      *              @SWG\Property(
      *                  property="message",
@@ -69,21 +69,21 @@ class answersAPIController extends AppBaseController
     }
 
     /**
-     * @param CreateanswersAPIRequest $request
+     * @param CreateAnswersAPIRequest $request
      * @return Response
      *
      * @SWG\Post(
      *      path="/answers",
-     *      summary="Store a newly created answers in storage",
-     *      tags={"answers"},
-     *      description="Store answers",
+     *      summary="Store a newly created Answers in storage",
+     *      tags={"Answers"},
+     *      description="Store Answers",
      *      produces={"application/json"},
      *      @SWG\Parameter(
      *          name="body",
      *          in="body",
-     *          description="answers that should be stored",
+     *          description="Answers that should be stored",
      *          required=false,
-     *          @SWG\Schema(ref="#/definitions/answers")
+     *          @SWG\Schema(ref="#/definitions/Answers")
      *      ),
      *      @SWG\Response(
      *          response=200,
@@ -96,7 +96,7 @@ class answersAPIController extends AppBaseController
      *              ),
      *              @SWG\Property(
      *                  property="data",
-     *                  ref="#/definitions/answers"
+     *                  ref="#/definitions/Answers"
      *              ),
      *              @SWG\Property(
      *                  property="message",
@@ -106,7 +106,7 @@ class answersAPIController extends AppBaseController
      *      )
      * )
      */
-    public function store(CreateanswersAPIRequest $request)
+    public function store(CreateAnswersAPIRequest $request)
     {
         $input = $request->all();
 
@@ -121,13 +121,13 @@ class answersAPIController extends AppBaseController
      *
      * @SWG\Get(
      *      path="/answers/{id}",
-     *      summary="Display the specified answers",
-     *      tags={"answers"},
-     *      description="Get answers",
+     *      summary="Display the specified Answers",
+     *      tags={"Answers"},
+     *      description="Get Answers",
      *      produces={"application/json"},
      *      @SWG\Parameter(
      *          name="id",
-     *          description="id of answers",
+     *          description="id of Answers",
      *          type="integer",
      *          required=true,
      *          in="path"
@@ -143,7 +143,7 @@ class answersAPIController extends AppBaseController
      *              ),
      *              @SWG\Property(
      *                  property="data",
-     *                  ref="#/definitions/answers"
+     *                  ref="#/definitions/Answers"
      *              ),
      *              @SWG\Property(
      *                  property="message",
@@ -155,7 +155,7 @@ class answersAPIController extends AppBaseController
      */
     public function show($id)
     {
-        /** @var answers $answers */
+        /** @var Answers $answers */
         $answers = $this->answersRepository->findWithoutFail($id);
 
         if (empty($answers)) {
@@ -167,18 +167,18 @@ class answersAPIController extends AppBaseController
 
     /**
      * @param int $id
-     * @param UpdateanswersAPIRequest $request
+     * @param UpdateAnswersAPIRequest $request
      * @return Response
      *
      * @SWG\Put(
      *      path="/answers/{id}",
-     *      summary="Update the specified answers in storage",
-     *      tags={"answers"},
-     *      description="Update answers",
+     *      summary="Update the specified Answers in storage",
+     *      tags={"Answers"},
+     *      description="Update Answers",
      *      produces={"application/json"},
      *      @SWG\Parameter(
      *          name="id",
-     *          description="id of answers",
+     *          description="id of Answers",
      *          type="integer",
      *          required=true,
      *          in="path"
@@ -186,9 +186,9 @@ class answersAPIController extends AppBaseController
      *      @SWG\Parameter(
      *          name="body",
      *          in="body",
-     *          description="answers that should be updated",
+     *          description="Answers that should be updated",
      *          required=false,
-     *          @SWG\Schema(ref="#/definitions/answers")
+     *          @SWG\Schema(ref="#/definitions/Answers")
      *      ),
      *      @SWG\Response(
      *          response=200,
@@ -201,7 +201,7 @@ class answersAPIController extends AppBaseController
      *              ),
      *              @SWG\Property(
      *                  property="data",
-     *                  ref="#/definitions/answers"
+     *                  ref="#/definitions/Answers"
      *              ),
      *              @SWG\Property(
      *                  property="message",
@@ -211,11 +211,11 @@ class answersAPIController extends AppBaseController
      *      )
      * )
      */
-    public function update($id, UpdateanswersAPIRequest $request)
+    public function update($id, UpdateAnswersAPIRequest $request)
     {
         $input = $request->all();
 
-        /** @var answers $answers */
+        /** @var Answers $answers */
         $answers = $this->answersRepository->findWithoutFail($id);
 
         if (empty($answers)) {
@@ -224,7 +224,7 @@ class answersAPIController extends AppBaseController
 
         $answers = $this->answersRepository->update($input, $id);
 
-        return $this->sendResponse($answers->toArray(), 'answers updated successfully');
+        return $this->sendResponse($answers->toArray(), 'Answers updated successfully');
     }
 
     /**
@@ -233,13 +233,13 @@ class answersAPIController extends AppBaseController
      *
      * @SWG\Delete(
      *      path="/answers/{id}",
-     *      summary="Remove the specified answers from storage",
-     *      tags={"answers"},
-     *      description="Delete answers",
+     *      summary="Remove the specified Answers from storage",
+     *      tags={"Answers"},
+     *      description="Delete Answers",
      *      produces={"application/json"},
      *      @SWG\Parameter(
      *          name="id",
-     *          description="id of answers",
+     *          description="id of Answers",
      *          type="integer",
      *          required=true,
      *          in="path"
@@ -267,7 +267,7 @@ class answersAPIController extends AppBaseController
      */
     public function destroy($id)
     {
-        /** @var answers $answers */
+        /** @var Answers $answers */
         $answers = $this->answersRepository->findWithoutFail($id);
 
         if (empty($answers)) {

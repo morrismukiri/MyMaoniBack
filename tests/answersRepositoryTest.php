@@ -1,70 +1,70 @@
 <?php
 
-use App\Models\answers;
-use App\Repositories\answersRepository;
+use App\Models\Answers;
+use App\Repositories\AnswersRepository;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class answersRepositoryTest extends TestCase
+class AnswersRepositoryTest extends TestCase
 {
-    use MakeanswersTrait, ApiTestTrait, DatabaseTransactions;
+    use MakeAnswersTrait, ApiTestTrait, DatabaseTransactions;
 
     /**
-     * @var answersRepository
+     * @var AnswersRepository
      */
     protected $answersRepo;
 
     public function setUp()
     {
         parent::setUp();
-        $this->answersRepo = App::make(answersRepository::class);
+        $this->answersRepo = App::make(AnswersRepository::class);
     }
 
     /**
      * @test create
      */
-    public function testCreateanswers()
+    public function testCreateAnswers()
     {
-        $answers = $this->fakeanswersData();
-        $createdanswers = $this->answersRepo->create($answers);
-        $createdanswers = $createdanswers->toArray();
-        $this->assertArrayHasKey('id', $createdanswers);
-        $this->assertNotNull($createdanswers['id'], 'Created answers must have id specified');
-        $this->assertNotNull(answers::find($createdanswers['id']), 'answers with given id must be in DB');
-        $this->assertModelData($answers, $createdanswers);
+        $answers = $this->fakeAnswersData();
+        $createdAnswers = $this->answersRepo->create($answers);
+        $createdAnswers = $createdAnswers->toArray();
+        $this->assertArrayHasKey('id', $createdAnswers);
+        $this->assertNotNull($createdAnswers['id'], 'Created Answers must have id specified');
+        $this->assertNotNull(Answers::find($createdAnswers['id']), 'Answers with given id must be in DB');
+        $this->assertModelData($answers, $createdAnswers);
     }
 
     /**
      * @test read
      */
-    public function testReadanswers()
+    public function testReadAnswers()
     {
-        $answers = $this->makeanswers();
-        $dbanswers = $this->answersRepo->find($answers->id);
-        $dbanswers = $dbanswers->toArray();
-        $this->assertModelData($answers->toArray(), $dbanswers);
+        $answers = $this->makeAnswers();
+        $dbAnswers = $this->answersRepo->find($answers->id);
+        $dbAnswers = $dbAnswers->toArray();
+        $this->assertModelData($answers->toArray(), $dbAnswers);
     }
 
     /**
      * @test update
      */
-    public function testUpdateanswers()
+    public function testUpdateAnswers()
     {
-        $answers = $this->makeanswers();
-        $fakeanswers = $this->fakeanswersData();
-        $updatedanswers = $this->answersRepo->update($fakeanswers, $answers->id);
-        $this->assertModelData($fakeanswers, $updatedanswers->toArray());
-        $dbanswers = $this->answersRepo->find($answers->id);
-        $this->assertModelData($fakeanswers, $dbanswers->toArray());
+        $answers = $this->makeAnswers();
+        $fakeAnswers = $this->fakeAnswersData();
+        $updatedAnswers = $this->answersRepo->update($fakeAnswers, $answers->id);
+        $this->assertModelData($fakeAnswers, $updatedAnswers->toArray());
+        $dbAnswers = $this->answersRepo->find($answers->id);
+        $this->assertModelData($fakeAnswers, $dbAnswers->toArray());
     }
 
     /**
      * @test delete
      */
-    public function testDeleteanswers()
+    public function testDeleteAnswers()
     {
-        $answers = $this->makeanswers();
+        $answers = $this->makeAnswers();
         $resp = $this->answersRepo->delete($answers->id);
         $this->assertTrue($resp);
-        $this->assertNull(answers::find($answers->id), 'answers should not exist in DB');
+        $this->assertNull(Answers::find($answers->id), 'Answers should not exist in DB');
     }
 }
