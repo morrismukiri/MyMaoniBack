@@ -27,3 +27,5 @@ Route::resource('polls', 'PollAPIController');
 Route::resource('opinions', 'OpinionAPIController');
 
 Route::resource('categories', 'CategoryAPIController');
+
+Route::resource('answers', 'answersAPIController');
