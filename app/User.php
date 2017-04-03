@@ -75,9 +75,9 @@ class User extends Authenticatable
      */
     public static $rules = [
         'name' => 'required',
-        'username' => 'required|alpha_dash|max:15|unique:users',
-        'phone' => 'required|unique:users',
-        'gender' => 'required',
+        'username' => 'alpha_dash|max:15|unique:users',
+        'phone' => 'unique:users',
+        'gender' => '',
         'email' => 'required|email:unique:users',
         'password' => 'required'
     ];
