@@ -20,6 +20,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/ps', 'HomeController@ps');
 
 Route::resource('users', 'UserController');
 
