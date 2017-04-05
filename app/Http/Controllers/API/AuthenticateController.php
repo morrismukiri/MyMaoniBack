@@ -1,9 +1,13 @@
 <?php
 
+namespace App\Http\Controllers\API;
+
+use App\Http\Controllers\AppBaseController;
+use Illuminate\Http\Request;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
-class AuthenticateController extends Controller
+class AuthenticateController extends AppBaseController
 {
     public function authenticate(Request $request)
     {

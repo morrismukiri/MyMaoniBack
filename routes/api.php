@@ -19,15 +19,7 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 
-Route::post('/signin', function () {
-   $credentials = Input::only('email', 'password');
-
-   if ( ! $token = JWTAuth::attempt($credentials)) {
-       return Response::json(false, HttpResponse::HTTP_UNAUTHORIZED);
-   }
-
-   return Response::json(compact('token'));
-});
+Route::post('/signin', 'AuthenticateController@authenticate');
 Route::resource('polls', 'PollAPIController');
 
 
