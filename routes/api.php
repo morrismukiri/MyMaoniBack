@@ -19,7 +19,7 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 
-Route::post('/signin', 'AuthenticateController@authenticate');
+Route::post('/authenticate', 'AuthenticateController@authenticate');
 Route::resource('polls', 'PollAPIController');
 
 
