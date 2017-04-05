@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response as HttpResponse;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,15 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 
+Route::post('/signin', function () {
+   $credentials = Input::only('email', 'password');
+
+   if ( ! $token = JWTAuth::attempt($credentials)) {
+       return Response::json(false, HttpResponse::HTTP_UNAUTHORIZED);
+   }
+
+   return Response::json(compact('token'));
+});
 Route::resource('polls', 'PollAPIController');
 
 
