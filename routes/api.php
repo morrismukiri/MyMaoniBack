@@ -23,6 +23,8 @@ Route::post('/authenticate', 'AuthenticateController@authenticate');
 Route::resource('polls', 'PollAPIController');
 
 Route::get('/user/details','AuthenticateController@getAuthenticatedUser');
+Route::get('/userdetail/{id}','AuthenticateController@getUserDetail');
+
 
 
 

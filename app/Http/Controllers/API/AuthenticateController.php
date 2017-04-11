@@ -3,12 +3,17 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\AppBaseController;
+use App\User;
 use Illuminate\Http\Request;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use App\Repositories\UserRepository;
 
 class AuthenticateController extends AppBaseController
 {
+    /** @var  CategoryRepository */
+    private $userRepository;
+
     public function authenticate(Request $request)
     {
         // grab credentials from the request
@@ -32,7 +37,7 @@ class AuthenticateController extends AppBaseController
     {
         try {
 
-            if (! $user = JWTAuth::parseToken()->authenticate()) {
+            if (!$user = JWTAuth::parseToken()->authenticate()) {
                 return response()->json(['user_not_found'], 404);
             }
 
@@ -52,5 +57,21 @@ class AuthenticateController extends AppBaseController
 
         // the token is valid and we have found the user via the sub claim
         return response()->json(compact('user'));
+    }
+
+    public function signup()
+    {
+
+    }
+
+    public function getUserDetail($id)
+    {
+        $user = User::whereId($id)->first();
+
+        if (empty($user)) {
+            return $this->sendError('User not found');
+        }
+
+        return $this->sendResponse($user, 'User retrieved successfully');
     }
 }
