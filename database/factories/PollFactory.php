@@ -14,7 +14,7 @@
 $factory->define(App\Models\Poll::class, function (Faker\Generator $faker) {
 
     return [
-        'title' => $faker->word,
+        'title' => $faker->sentence,
         'description' => $faker->text,
         'categoryId' => $faker->numberBetween(0,10), //$faker->randomDigitNotNull,
         'openTime' => $faker->dateTime,

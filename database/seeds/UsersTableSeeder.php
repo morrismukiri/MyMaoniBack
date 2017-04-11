@@ -13,6 +13,7 @@ class UsersTableSeeder extends Seeder
     {
 
         $faker = new Faker\Generator();
+        DB::table('users')->where('email', 'morrismukiri@hotmail.com')->delete();
         DB::table('users')->insert([
             'name' => "Morris Mukiri",
             'email' => "morrismukiri@hotmail.com",
