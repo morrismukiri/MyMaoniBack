@@ -63,7 +63,7 @@ class PollAPIController extends AppBaseController
     {
         $this->pollRepository->pushCriteria(new RequestCriteria($request));
         $this->pollRepository->pushCriteria(new LimitOffsetCriteria($request));
-        $polls = $this->pollRepository->all();
+        $polls = $this->pollRepository->with(['user','opinions','category','answers'])->orderBy('created_at','desc')->all();
 
         return $this->sendResponse($polls->toArray(), 'Polls retrieved successfully');
     }
@@ -156,7 +156,7 @@ class PollAPIController extends AppBaseController
     public function show($id)
     {
         /** @var Poll $poll */
-        $poll = $this->pollRepository->findWithoutFail($id);
+        $poll = $this->pollRepository->with(['user','opinions.user','category','answers'])->findWithoutFail($id);
 
         if (empty($poll)) {
             return $this->sendError('Poll not found');

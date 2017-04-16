@@ -8,6 +8,7 @@ use App\Models\Answers;
 use App\Repositories\AnswersRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\Storage;
 use InfyOm\Generator\Criteria\LimitOffsetCriteria;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
@@ -16,7 +17,6 @@ use Response;
  * Class AnswersController
  * @package App\Http\Controllers\API
  */
-
 class AnswersAPIController extends AppBaseController
 {
     /** @var  AnswersRepository */
@@ -110,9 +110,19 @@ class AnswersAPIController extends AppBaseController
     {
         $input = $request->all();
 
-        $answers = $this->answersRepository->create($input);
+        $answers = null;
+        Storage::append('file.log', json_encode($input));
+        if (is_array(current($input))) {
+            foreach ($input as $inp) {
+                $answers[] = $this->answersRepository->create($inp);
 
-        return $this->sendResponse($answers->toArray(), 'Answers saved successfully');
+            }
+            return $this->sendResponse($answers, 'Answers saved successfully');
+        } else {
+            $answers = $this->answersRepository->create($input);
+            return $this->sendResponse($answers->toArray(), 'Answers saved successfully');
+        }
+
     }
 
     /**
