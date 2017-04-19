@@ -111,8 +111,8 @@ class OpinionAPIController extends AppBaseController
         $input = $request->all();
 
         $opinions = $this->opinionRepository->create($input);
-
-        return $this->sendResponse($opinions->toArray(), 'Opinion saved successfully');
+        $opinionsWithRelations =$this->opinionRepository->with(['user'])->findWithoutFail($opinions['id']);
+        return $this->sendResponse($opinionsWithRelations->toArray(), 'Opinion saved successfully');
     }
 
     /**
