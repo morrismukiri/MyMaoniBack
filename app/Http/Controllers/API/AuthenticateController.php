@@ -9,6 +9,7 @@ use JWTAuth;
 use League\Flysystem\Exception;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Repositories\UserRepository;
+use Validator;
 
 class AuthenticateController extends AppBaseController
 {
@@ -72,6 +73,13 @@ class AuthenticateController extends AppBaseController
             'dob' => $request['dob'],
             'password' => bcrypt($request['password']),
         ];
+        $validator = Validator::make($request->all(), User::$rules);
+        if ($validator->fails()) {
+            $errors= $validator->messages();
+            return response()->json(compact('errors'),400);
+        }else{
+//process the request
+        }
         try {
             $user = User::create($data);
         } catch (Exception $e) {
