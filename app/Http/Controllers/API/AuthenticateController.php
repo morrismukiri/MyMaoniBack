@@ -6,6 +6,7 @@ use App\Http\Controllers\AppBaseController;
 use App\User;
 use Illuminate\Http\Request;
 use JWTAuth;
+use League\Flysystem\Exception;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Repositories\UserRepository;
 
@@ -59,8 +60,25 @@ class AuthenticateController extends AppBaseController
         return response()->json(compact('user'));
     }
 
-    public function signup()
+    public function signup(Request $request)
     {
+        $data = [
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'username' => $request['username'],
+            'phone' => $request['phone'],
+            'gender' => $request['gender'],
+            'address' => $request['address'],
+            'dob' => $request['dob'],
+            'password' => bcrypt($request['password']),
+        ];
+        try {
+            $user = User::create($data);
+        } catch (Exception $e) {
+            return response::json(['error' => 'User already exists.'], response::HTTP_CONFLICT);
+        }
+        $token = JWTAuth::fromUser($user);
+        return response()->json(compact('token'));
 
     }
 
