@@ -66,7 +66,7 @@ class AuthenticateController extends AppBaseController
         $data = [
             'name' => $request['name'],
             'email' => $request['email'],
-            'username' => $request['username'],
+            'username' => $request['username']?$request['username']:$request['email'],
             'phone' => $request['phone'],
             'gender' => $request['gender'],
             'address' => $request['address'],

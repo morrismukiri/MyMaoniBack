@@ -79,7 +79,7 @@ class User extends Authenticatable
         'username' => 'alpha_dash|max:15|unique:users',
         'phone' => 'unique:users',
         'gender' => '',
-        'email' => 'required|email:unique:users',
+        'email' => 'required|email|unique:users',
         'password' => 'required'
     ];
 
