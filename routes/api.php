@@ -34,3 +34,5 @@ Route::resource('opinions', 'OpinionAPIController');
 Route::resource('categories', 'CategoryAPIController');
 
 Route::resource('answers', 'AnswersAPIController');
+
+Route::post('/vote', 'VoteAPIController@vote');
