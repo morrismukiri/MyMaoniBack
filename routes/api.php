@@ -26,6 +26,7 @@ Route::resource('polls', 'PollAPIController');
 Route::get('/user/details','AuthenticateController@getAuthenticatedUser');
 Route::get('/userdetail/{id}','AuthenticateController@getUserDetail');
 Route::get('/pollsbyuser/{id}','PollAPIController@pollsByUser');
+Route::get('/usercontribution/{id}','PollAPIController@usercontribution');
 
 
 

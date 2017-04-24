@@ -6,6 +6,8 @@ use App\Http\Requests\API\CreatePollAPIRequest;
 use App\Http\Requests\API\UpdatePollAPIRequest;
 use App\Models\Poll;
 use App\Repositories\PollRepository;
+use App\Repositories\UserRepository;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
 use InfyOm\Generator\Criteria\LimitOffsetCriteria;
@@ -285,5 +287,11 @@ class PollAPIController extends AppBaseController
         ->with(['user','opinions','category','answers','votes'])->orderBy('created_at','desc')->findWhere(['userId'=>$userId]);
 
         return $this->sendResponse($polls->toArray(), 'Polls retrieved successfully');
+    }
+
+    public function usercontribution($userId,UserRepository $userRepository){
+        $userRepo = $userRepository;
+        $contribution = $userRepo->with(['opinions','votes','opinions.poll', 'votes.poll','opinions.poll.user', 'votes.poll.user','opinions.poll.opinions', 'votes.poll.opinions','opinions.poll.votes', 'votes.poll.votes'])->findWithoutFail($userId);
+        return $this->sendResponse($contribution->toArray(), 'Contribution retrieved successfully');
     }
 }

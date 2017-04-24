@@ -80,6 +80,8 @@ class Vote extends Model
         'userId' => 'required',
         'answerId' => 'required'
     ];
-
+public function poll(){
+    return $this->belongsTo(\App\Models\Poll::class,'pollId','id');
+}
     
 }

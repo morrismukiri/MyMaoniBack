@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Vote;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -107,6 +108,9 @@ class User extends Authenticatable
         return $this->hasMany(\App\Models\Poll::class,'userId','id');
     }
     public function opinions(){
-        return $this->hasMany(\App\Models\Opinion::class, 'userID','id');
+        return $this->hasMany(\App\Models\Opinion::class, 'userId','id');
+    }
+    public function votes(){
+        return $this->hasMany(\App\Models\Vote::class,'userId','id');
     }
 }
