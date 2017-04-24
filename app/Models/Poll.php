@@ -116,5 +116,8 @@ class Poll extends Model
     public function answers(){
         return $this->hasMany(Answers::class,'pollId','id');
     }
+    public function votes(){
+        return $this->hasMany(Vote::class,'pollId','id');
+    }
 
 }
