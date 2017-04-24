@@ -278,4 +278,12 @@ class PollAPIController extends AppBaseController
 
         return $this->sendResponse($id, 'Poll deleted successfully');
     }
+
+    public function pollsByUser($userId){
+
+        $polls = $this->pollRepository
+        ->with(['user','opinions','category','answers','votes'])->orderBy('created_at','desc')->findWhere(['userId'=>$userId]);
+
+        return $this->sendResponse($polls->toArray(), 'Polls retrieved successfully');
+    }
 }
