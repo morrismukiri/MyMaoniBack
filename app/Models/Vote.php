@@ -50,7 +50,6 @@ class Vote extends Model
 {
 
     public $table = 'votes';
-    
 
 
     public $fillable = [
@@ -80,8 +79,20 @@ class Vote extends Model
         'userId' => 'required',
         'answerId' => 'required'
     ];
-public function poll(){
-    return $this->belongsTo(\App\Models\Poll::class,'pollId','id');
-}
-    
+
+    public function poll()
+    {
+        return $this->belongsTo(\App\Models\Poll::class, 'pollId', 'id');
+    }
+
+    public function voter()
+    {
+        return $this->belongsTo(\App\User::class, 'userId','id');
+    }
+
+    public function answer()
+    {
+        return $this->hasOne(\App\Models\Answers::class, 'id','answerId');
+    }
+
 }
