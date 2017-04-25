@@ -21,6 +21,6 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'gender' =>$gender ,
         'address' => $faker->address,
         'dob' => $faker->date($format = 'Y-m-d', $max = 'now'),
-        'password' => bcrypt('secret')
+        'password' => 'secret'
     ];
 });

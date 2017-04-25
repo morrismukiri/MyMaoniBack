@@ -71,7 +71,7 @@ class AuthenticateController extends AppBaseController
             'gender' => $request['gender'],
             'address' => $request['address'],
             'dob' => $request['dob'],
-            'password' => bcrypt($request['password']),
+            'password' => $request['password']
         ];
         $validator = Validator::make($request->all(), User::$rules);
         if ($validator->fails()) {
