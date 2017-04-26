@@ -39,3 +39,4 @@ Route::resource('answers', 'AnswersAPIController');
 
 Route::post('/vote', 'VoteAPIController@vote');
 Route::get('/pollresult/{id}', 'PollAPIController@pollResult');
+Route::get('/pollresultnumbers/{id}', 'PollAPIController@getPollVoteNumbers');

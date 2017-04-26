@@ -5,11 +5,13 @@ namespace App\Http\Controllers\API;
 use App\Http\Requests\API\CreatePollAPIRequest;
 use App\Http\Requests\API\UpdatePollAPIRequest;
 use App\Models\Poll;
+use App\Models\Vote;
 use App\Repositories\PollRepository;
 use App\Repositories\UserRepository;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\DB;
 use InfyOm\Generator\Criteria\LimitOffsetCriteria;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
@@ -297,5 +299,15 @@ class PollAPIController extends AppBaseController
     public function pollResult($pollId){
         $pollResult = $this->pollRepository->with(['votes','user','answers','votes.answer','votes.voter'])->findWithoutFail($pollId);
         return $this->sendResponse($pollResult->toArray(), 'Poll result retrieved successfully');
+
+    }
+
+    public function getPollVoteNumbers($pollId){
+        $pollVotes = Vote::with(['answer'])
+            ->where('pollId',$pollId)
+            ->groupBy('answerId')
+            ->orderBy(DB::raw('COUNT(answerId)','desc'))
+            ->get(array(DB::raw('COUNT(answerId) as totalVotes'),'answerId'));
+        return $this->sendResponse($pollVotes->toArray(), 'Poll result retrieved successfully');
     }
 }
