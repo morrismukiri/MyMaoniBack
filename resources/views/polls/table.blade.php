@@ -5,7 +5,7 @@
         <th>Category</th>
         <th>Open time</th>
         <th>Close time</th>
-        <th>Target group</th>
+        {{--<th>Target group</th>--}}
         <th>Type</th>
         <th>Posted by</th>
         <th colspan="3">Action</th>
@@ -18,7 +18,7 @@
             <td>{!! $poll->category?$poll->category->name: 'None'!!}</td>
             <td>{!! $poll->openTime !!}</td>
             <td>{!! $poll->closeTime !!}</td>
-            <td>{!! $poll->targetGroup !!}</td>
+            {{--<td>{!! $poll->targetGroup !!}</td>--}}
             <td>{!! $poll->type !!}</td>
             <td>{!! $poll->user->name !!}</td>
             <td>

@@ -58,3 +58,15 @@
     <p>{!! $poll->updated_at !!}</p>
 </div>
 
+<div class="form-group">
+    <h3>
+        Poll Answers
+    </h3>
+    <ul>
+        @foreach($poll->answers as $answer)
+        <li>
+            {!! $answer->text !!}
+        </li>
+        @endforeach
+    </ul>
+</div>
