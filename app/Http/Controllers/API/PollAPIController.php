@@ -294,4 +294,8 @@ class PollAPIController extends AppBaseController
         $contribution = $userRepo->with(['opinions','votes','opinions.poll', 'votes.poll','opinions.poll.user', 'votes.poll.user','opinions.poll.opinions', 'votes.poll.opinions','opinions.poll.votes', 'votes.poll.votes'])->findWithoutFail($userId);
         return $this->sendResponse($contribution->toArray(), 'Contribution retrieved successfully');
     }
+    public function pollResult($pollId){
+        $pollResult = $this->pollRepository->with(['votes','user','answers','votes.answer','votes.voter'])->findWithoutFail($pollId);
+        return $this->sendResponse($pollResult->toArray(), 'Poll result retrieved successfully');
+    }
 }

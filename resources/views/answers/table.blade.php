@@ -1,13 +1,13 @@
 <table class="table table-responsive" id="answers-table">
     <thead>
-        <th>Pollid</th>
+        <th>Poll</th>
         <th>Text</th>
         <th colspan="3">Action</th>
     </thead>
     <tbody>
     @foreach($answers as $answers)
         <tr>
-            <td>{!! $answers->pollId !!}</td>
+            <td>{!! $answers->poll->title !!}</td>
             <td>{!! $answers->text !!}</td>
             <td>
                 {!! Form::open(['route' => ['answers.destroy', $answers->id], 'method' => 'delete']) !!}

@@ -38,4 +38,4 @@ Route::resource('categories', 'CategoryAPIController');
 Route::resource('answers', 'AnswersAPIController');
 
 Route::post('/vote', 'VoteAPIController@vote');
-Route::get('/pollresult/{id}', 'VoteAPIController@voteResult');
+Route::get('/pollresult/{id}', 'PollAPIController@pollResult');
