@@ -20,6 +20,7 @@ class OpinionController extends AppBaseController
 
     public function __construct(OpinionRepository $opinionRepo)
     {
+        $this->middleware('auth');
         $this->opinionRepository = $opinionRepo;
     }
 

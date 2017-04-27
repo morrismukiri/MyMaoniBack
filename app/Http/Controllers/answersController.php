@@ -19,7 +19,9 @@ class AnswersController extends AppBaseController
 
     public function __construct(AnswersRepository $answersRepo)
     {
+        $this->middleware('auth');
         $this->answersRepository = $answersRepo;
+
     }
 
     /**

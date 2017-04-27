@@ -48,13 +48,13 @@
 <!-- Type Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('type', 'Type:') !!}
-    <label class="radio-inline">
-        {!! Form::radio('type', "open", null) !!} open
-    </label>
+    {{--<label class="radio-inline">--}}
+        {!! Form::select('type', ["closed"=>"closed","open"=>"open"], null,['class' => 'form-control']) !!}
+    {{--</label>--}}
 
-    <label class="radio-inline">
-        {!! Form::radio('type', "closed", null) !!} closed
-    </label>
+    {{--<label class="radio-inline">--}}
+        {{--{!! Form::radio('type', "closed", null) !!} closed--}}
+    {{--</label>--}}
 
 </div>
 

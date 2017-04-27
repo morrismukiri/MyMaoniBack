@@ -20,6 +20,7 @@ class PollController extends AppBaseController
 
     public function __construct(PollRepository $pollRepo)
     {
+        $this->middleware('auth');
         $this->pollRepository = $pollRepo;
     }
 
