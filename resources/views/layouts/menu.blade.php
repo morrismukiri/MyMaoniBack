@@ -1,3 +1,7 @@
+
+<li class="{{ Request::is('surveys*') ? 'active' : '' }}">
+    <a href="{!! route('surveys.index') !!}"><i class="fa fa-edit"></i><span>Surveys</span></a>
+</li>
 <li class="{{ Request::is('polls*') ? 'active' : '' }}">
     <a href="{!! route('polls.index') !!}"><i class="fa fa-edit"></i><span>Polls</span></a>
 
@@ -6,8 +10,6 @@
 <li class="{{ Request::is('answers*') ? 'active' : '' }}">
     <a href="{!! route('answers.index') !!}"><i class="fa fa-edit"></i><span>Poll Answers</span></a>
 </li>
-
-
 
 <li class="{{ Request::is('opinions*') ? 'active' : '' }}">
     <a href="{!! route('opinions.index') !!}"><i class="fa fa-edit"></i><span>Opinions</span></a>
@@ -21,9 +23,4 @@
     <a href="{!! route('users.index') !!}"><i class="fa fa-edit"></i><span>Users</span></a>
 </li>
 
-
-
-<li class="{{ Request::is('surveys*') ? 'active' : '' }}">
-    <a href="{!! route('surveys.index') !!}"><i class="fa fa-edit"></i><span>Surveys</span></a>
-</li>
 

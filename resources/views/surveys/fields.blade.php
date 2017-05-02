@@ -25,27 +25,21 @@
 <!-- Targetgroup Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('targetGroup', 'Targetgroup:') !!}
-    {!! Form::select('targetGroup', ['1' => '1', '2' => '2', '3 ' => '3 '], null, ['class' => 'form-control']) !!}
+    {!! Form::select('targetGroup', ['1' => 'All', '2' => 'Male', '3 ' => 'Female ', '4 ' => 'Youth'], null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Type Field -->
-<div class="form-group col-sm-12">
+<div class="form-group col-sm-6">
     {!! Form::label('type', 'Type:') !!}
-    <label class="radio-inline">
-        {!! Form::radio('type', "open", null) !!} open
-    </label>
-
-    <label class="radio-inline">
-        {!! Form::radio('type', "closed", null) !!} closed
-    </label>
+    {!! Form::select('type', ["closed"=>"closed","open"=>"open"], null,['class' => 'form-control']) !!}
 
 </div>
 
 <!-- Userid Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('userId', 'Userid:') !!}
-    {!! Form::select('userId', ], null, ['class' => 'form-control']) !!}
-</div>
+{{--<div class="form-group col-sm-6">--}}
+    {{--{!! Form::label('userId', 'Userid:') !!}--}}
+    {{--{!! Form::select('userId', ], null, ['class' => 'form-control']) !!}--}}
+{{--</div>--}}
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
