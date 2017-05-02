@@ -23,3 +23,7 @@
 
 
 
+<li class="{{ Request::is('surveys*') ? 'active' : '' }}">
+    <a href="{!! route('surveys.index') !!}"><i class="fa fa-edit"></i><span>Surveys</span></a>
+</li>
+
