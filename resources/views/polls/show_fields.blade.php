@@ -16,6 +16,12 @@
     <p>{!! $poll->category?$poll->category->name:'None'!!}</p>
 </div>
 
+<!-- Survey Field -->
+<div class="form-group">
+    {!! Form::label('survey', 'Survey:') !!}
+    <p>{!! $poll->survey?$poll->survey->title:'None'!!}</p>
+</div>
+
 <!-- Opentime Field -->
 <div class="form-group">
     {!! Form::label('openTime', 'Opening time:') !!}
@@ -28,11 +34,11 @@
     <p>{!! $poll->closeTime !!}</p>
 </div>
 
-<!-- Targetgroup Field -->
-<div class="form-group">
-    {!! Form::label('targetGroup', 'Targetgroup:') !!}
-    <p>{!! $poll->targetGroup !!}</p>
-</div>
+{{--<!-- Targetgroup Field -->--}}
+{{--<div class="form-group">--}}
+    {{--{!! Form::label('targetGroup', 'Targetgroup:') !!}--}}
+    {{--<p>{!! $poll->targetGroup !!}</p>--}}
+{{--</div>--}}
 
 <!-- Type Field -->
 <div class="form-group">

@@ -12,10 +12,15 @@
 
 <!-- Parentid Field -->
 <div class="form-group col-sm-12">
+    {!! Form::label('surveyId', 'Survey:') !!}
+    {!! Form::select('surveyId', $survies, null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- SurveyId Field -->
+<div class="form-group col-sm-12">
     {!! Form::label('categoryId', 'Category:') !!}
     {!! Form::select('categoryId', $categories, null, ['class' => 'form-control']) !!}
 </div>
-
 <!-- Opentime Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('openTime', 'Opening time:') !!}
