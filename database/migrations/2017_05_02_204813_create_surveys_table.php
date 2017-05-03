@@ -20,7 +20,6 @@ class CreateSurveysTable extends Migration
             $table->dateTime('openTime');
             $table->dateTime('closeTime');
             $table->integer('targetGroup');
-            $table->string('type');
             $table->integer('userId');
             $table->timestamps();
         });

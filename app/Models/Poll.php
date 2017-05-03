@@ -25,6 +25,11 @@ use Eloquent as Model;
  *          type="string"
  *      ),
  *      @SWG\Property(
+ *          property="surveyId",
+ *          description="Survey Id",
+ *          type="integer"
+ *      ),
+ *      @SWG\Property(
  *          property="categoryId",
  *          description="category Id",
  *          type="integer"
@@ -70,6 +75,7 @@ class Poll extends Model
     public $fillable = [
         'title',
         'description',
+        'surveyId',
         'categoryId',
         'openTime',
         'closeTime',
@@ -86,6 +92,7 @@ class Poll extends Model
     protected $casts = [
         'title' => 'string',
         'description' => 'string',
+        'surveyId'=>'integer',
         'categoryId'=>'integer',
         'openTime' => 'datetime',
         'closeTime' => 'datetime',
@@ -104,6 +111,9 @@ class Poll extends Model
         'closeTime' => 'required'
     ];
 
+    public function survey(){
+        return $this->belongsTo(Survey::class,'surveyId','id');
+    }
     public function user(){
         return $this->belongsTo(\App\User::class, 'userId','id');
     }

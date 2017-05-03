@@ -8,6 +8,7 @@ use App\Repositories\SurveyRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Auth;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -56,6 +57,7 @@ class SurveyController extends AppBaseController
     public function store(CreateSurveyRequest $request)
     {
         $input = $request->all();
+        $input['userId']= Auth::user()->id;
 
         $survey = $this->surveyRepository->create($input);
 

@@ -11,17 +11,14 @@
 |
 */
 
-$factory->define(App\Models\Poll::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Survey::class, function (Faker\Generator $faker) {
 
     return [
         'title' => $faker->sentence,
         'description' => $faker->text,
-        'surveyId' => $faker->numberBetween(0,10), //$faker->randomDigitNotNull,
-        'categoryId' => $faker->numberBetween(0,10), //$faker->randomDigitNotNull,
         'openTime' => $faker->dateTime,
         'closeTime' => $faker->dateTime,
         'targetGroup' => $faker->randomDigitNotNull,
-        'type' => $faker->randomElement(['open','closed']),
         'userId' => $faker->numberBetween(1,10)
     ];
 });

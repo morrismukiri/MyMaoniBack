@@ -31,11 +31,6 @@ use Eloquent as Model;
  *          format="int32"
  *      ),
  *      @SWG\Property(
- *          property="type",
- *          description="type",
- *          type="string"
- *      ),
- *      @SWG\Property(
  *          property="userId",
  *          description="userId",
  *          type="integer",
@@ -68,7 +63,6 @@ class Survey extends Model
         'openTime',
         'closeTime',
         'targetGroup',
-        'type',
         'userId'
     ];
 
@@ -83,7 +77,6 @@ class Survey extends Model
         'openTime' => 'datetime',
         'closeTime' => 'datetime',
         'targetGroup' => 'integer',
-        'type' => 'string',
         'userId' => 'integer'
     ];
 
@@ -94,9 +87,13 @@ class Survey extends Model
      */
     public static $rules = [
         'title' => 'required',
-        'closeTime' => 'required',
-        'userId' => 'required'
+        'closeTime' => 'required'
     ];
 
-    
+    public function polls(){
+        return $this->hasMany(Poll::class,'surveyId','id');
+    }
+    public function user(){
+        return $this->belongsTo(\App\User::class, 'userId','id');
+    }
 }

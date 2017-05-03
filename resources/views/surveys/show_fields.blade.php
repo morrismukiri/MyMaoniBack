@@ -1,9 +1,3 @@
-<!-- Id Field -->
-<div class="form-group">
-    {!! Form::label('id', 'Id:') !!}
-    <p>{!! $survey->id !!}</p>
-</div>
-
 <!-- Title Field -->
 <div class="form-group">
     {!! Form::label('title', 'Title:') !!}
@@ -18,32 +12,27 @@
 
 <!-- Opentime Field -->
 <div class="form-group">
-    {!! Form::label('openTime', 'Opentime:') !!}
+    {!! Form::label('openTime', 'Opens:') !!}
     <p>{!! $survey->openTime !!}</p>
 </div>
 
 <!-- Closetime Field -->
 <div class="form-group">
-    {!! Form::label('closeTime', 'Closetime:') !!}
+    {!! Form::label('closeTime', 'Closes:') !!}
     <p>{!! $survey->closeTime !!}</p>
 </div>
 
-<!-- Targetgroup Field -->
-<div class="form-group">
-    {!! Form::label('targetGroup', 'Targetgroup:') !!}
-    <p>{!! $survey->targetGroup !!}</p>
-</div>
+{{--<!-- Targetgroup Field -->--}}
+{{--<div class="form-group">--}}
+    {{--{!! Form::label('targetGroup', 'Targetgroup:') !!}--}}
+    {{--<p>{!! $survey->targetGroup !!}</p>--}}
+{{--</div>--}}
 
-<!-- Type Field -->
-<div class="form-group">
-    {!! Form::label('type', 'Type:') !!}
-    <p>{!! $survey->type !!}</p>
-</div>
 
 <!-- Userid Field -->
 <div class="form-group">
-    {!! Form::label('userId', 'Userid:') !!}
-    <p>{!! $survey->userId !!}</p>
+    {!! Form::label('userId', 'User:') !!}
+    <p>{!! $survey->user->name !!}</p>
 </div>
 
 <!-- Created At Field -->
