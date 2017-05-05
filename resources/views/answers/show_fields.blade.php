@@ -1,13 +1,8 @@
-<!-- Id Field -->
-<div class="form-group">
-    {!! Form::label('id', 'Id:') !!}
-    <p>{!! $answers->id !!}</p>
-</div>
 
 <!-- Pollid Field -->
 <div class="form-group">
-    {!! Form::label('pollId', 'Pollid:') !!}
-    <p>{!! $answers->pollId !!}</p>
+    {!! Form::label('pollId', 'Poll Title:') !!}
+    <p>{!! $answers->poll->title !!}</p>
 </div>
 
 <!-- Text Field -->
