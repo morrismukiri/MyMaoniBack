@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreatePollRequest;
 use App\Http\Requests\UpdatePollRequest;
 use App\Models\Category;
+use App\Models\Poll;
 use App\Models\Survey;
 use App\Repositories\PollRepository;
 use App\Http\Controllers\AppBaseController;
@@ -163,5 +164,8 @@ class PollController extends AppBaseController
         Flash::success('Poll deleted successfully.');
 
         return redirect(route('polls.index'));
+    }
+    public function PollAnswers(Poll $poll){
+        return view('polls.addanswers')->with('poll', $poll);
     }
 }
