@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateSurveyRequest;
 use App\Http\Requests\UpdateSurveyRequest;
+use App\Models\Survey;
 use App\Repositories\SurveyRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -153,5 +154,9 @@ class SurveyController extends AppBaseController
         Flash::success('Survey deleted successfully.');
 
         return redirect(route('surveys.index'));
+    }
+    public function SurveyPolls(Survey $survey){
+
+        return view('surveys.addPolls')->with('survey', $survey);
     }
 }

@@ -37,3 +37,7 @@ Route::resource('categories', 'CategoryController');
 Route::resource('answers', 'AnswersController');
 
 Route::resource('surveys', 'SurveyController');
+
+//Survey routes
+
+Route::get('/survey/{survey}/polls','SurveyController@SurveyPolls');

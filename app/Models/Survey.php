@@ -54,7 +54,7 @@ class Survey extends Model
 {
 
     public $table = 'surveys';
-    
+
 
 
     public $fillable = [
@@ -89,6 +89,8 @@ class Survey extends Model
         'title' => 'required',
         'closeTime' => 'required'
     ];
+
+    protected $with = ['polls','polls.answers'];
 
     public function polls(){
         return $this->hasMany(Poll::class,'surveyId','id');
