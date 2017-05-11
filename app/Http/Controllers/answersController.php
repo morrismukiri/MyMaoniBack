@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateAnswersRequest;
 use App\Http\Requests\UpdateAnswersRequest;
+use App\Models\Answers;
 use App\Models\Poll;
 use App\Repositories\AnswersRepository;
 use App\Http\Controllers\AppBaseController;
@@ -46,12 +47,14 @@ class AnswersController extends AppBaseController
      */
     public function create($pollId = null)
     {
+       $answers= null;
         if ($pollId) {
+            $answers =$this->answersRepository->findWhere(['pollId'=>$pollId])->all();
             $polls = Poll::where('id', $pollId)->pluck('title', 'id')->all();
         } else {
             $polls = Poll::pluck('title', 'id')->all();
         }
-        return view('answers.create')->with(compact('polls'));
+        return view('answers.create')->with(compact('polls'))->with(compact('answers'));
     }
 
     /**
