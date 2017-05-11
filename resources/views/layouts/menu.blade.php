@@ -7,9 +7,9 @@
 
 </li>
 
-<li class="{{ Request::is('answers*') ? 'active' : '' }}">
-    <a href="{!! route('answers.index') !!}"><i class="fa fa-edit"></i><span>Poll Answers</span></a>
-</li>
+{{--<li class="{{ Request::is('answers*') ? 'active' : '' }}">--}}
+    {{--<a href="{!! route('answers.index') !!}"><i class="fa fa-edit"></i><span>Poll Answers</span></a>--}}
+{{--</li>--}}
 
 <li class="{{ Request::is('opinions*') ? 'active' : '' }}">
     <a href="{!! route('opinions.index') !!}"><i class="fa fa-edit"></i><span>Opinions</span></a>
