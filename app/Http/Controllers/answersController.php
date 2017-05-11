@@ -44,9 +44,13 @@ class AnswersController extends AppBaseController
      *
      * @return Response
      */
-    public function create()
+    public function create($pollId = null)
     {
-        $polls = Poll::pluck('title', 'id')->all();
+        if ($pollId) {
+            $polls = Poll::where('id', $pollId)->pluck('title', 'id')->all();
+        } else {
+            $polls = Poll::pluck('title', 'id')->all();
+        }
         return view('answers.create')->with(compact('polls'));
     }
 
@@ -112,7 +116,7 @@ class AnswersController extends AppBaseController
     /**
      * Update the specified Answers in storage.
      *
-     * @param  int              $id
+     * @param  int $id
      * @param UpdateAnswersRequest $request
      *
      * @return Response

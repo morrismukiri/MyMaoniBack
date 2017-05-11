@@ -36,6 +36,7 @@ Route::resource('opinions', 'OpinionController');
 Route::resource('categories', 'CategoryController');
 
 Route::resource('answers', 'AnswersController');
+Route::get('answers/create/{pollId?}', 'AnswersController@create');
 
 Route::resource('surveys', 'SurveyController');
 
