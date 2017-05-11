@@ -46,12 +46,15 @@ class PollController extends AppBaseController
      *
      * @return Response
      */
-    public function create()
+    public function create($surveyId=null)
     {
         $categories = Category::pluck('name', 'id')->all();
-        $survies = Survey::pluck('title', 'id')->all();
-
-        $categories=array(0=>'None')+$categories;
+        if ($surveyId) {
+            $survies = Survey::where('id', $surveyId)->pluck('title', 'id')->all();
+        } else {
+            $survies = Survey::pluck('title', 'id')->all();
+        }
+        $categories = array(0 => 'None') + $categories;
         return view('polls.create')->with(compact('categories'))->with(compact('survies'));
     }
 
@@ -65,7 +68,7 @@ class PollController extends AppBaseController
     public function store(CreatePollRequest $request)
     {
         $input = $request->all();
-        $input['userId']= Auth::user()->id;
+        $input['userId'] = Auth::user()->id;
 
         $poll = $this->pollRepository->create($input);
 
@@ -113,14 +116,14 @@ class PollController extends AppBaseController
         $categories = Category::pluck('name', 'id')->all();
         $survies = Survey::pluck('title', 'id')->all();
 
-        $categories=array(0=>'None')+$categories;
+        $categories = array(0 => 'None') + $categories;
         return view('polls.edit')->with('poll', $poll)->with(compact('categories'))->with(compact('survies'));
     }
 
     /**
      * Update the specified Poll in storage.
      *
-     * @param  int              $id
+     * @param  int $id
      * @param UpdatePollRequest $request
      *
      * @return Response
@@ -165,7 +168,9 @@ class PollController extends AppBaseController
 
         return redirect(route('polls.index'));
     }
-    public function PollAnswers(Poll $poll){
+
+    public function PollAnswers(Poll $poll)
+    {
         return view('polls.addanswers')->with('poll', $poll);
     }
 }

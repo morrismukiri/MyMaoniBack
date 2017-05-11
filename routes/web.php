@@ -25,6 +25,7 @@ Route::get('/ps', 'HomeController@ps');
 Route::resource('users', 'UserController');
 
 Route::resource('polls', 'PollController');
+Route::get('polls/create/{survey?}', 'PollController@create');
 
 
 

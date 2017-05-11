@@ -30,6 +30,7 @@
     "admin-lte": "2.3.3",
     "ionicons": "2.0.1",
     "iCheck": "1.0.2",
-    "eonasdan-bootstrap-datetimepicker": "~4.17.47"
+    "eonasdan-bootstrap-datetimepicker": "~4.17.47",
+    "chart.js": "~2.5.0"
   }
 }

@@ -155,6 +155,7 @@
     <script src="/bower_components/admin-lte/dist/js/app.min.js"></script>
     <script src="/bower_components/admin-lte/plugins/datepicker/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="/bower_components/chart.js/dist/Chart.min.js"></script>
     <script type="text/javascript" src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
     <script>
         $(function () {
