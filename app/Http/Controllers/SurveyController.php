@@ -20,6 +20,7 @@ class SurveyController extends AppBaseController
 
     public function __construct(SurveyRepository $surveyRepo)
     {
+        $this->middleware('auth');
         $this->surveyRepository = $surveyRepo;
     }
 
