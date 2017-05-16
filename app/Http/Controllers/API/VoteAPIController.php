@@ -18,7 +18,7 @@ class VoteAPIController extends AppBaseController
 
     public function vote(Request $request)
     {
-        $data = $request->only('userId', 'pollId', 'answerId');
+        $data = $request->only('userId', 'pollId', 'answerId', 'comment');
         $validator = Validator::make($request->all(), Vote::$rules);
         if ($validator->fails()) {
             $errors = $validator->messages();

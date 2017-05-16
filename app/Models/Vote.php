@@ -33,6 +33,11 @@ use Eloquent as Model;
  *          format="int32"
  *      ),
  *      @SWG\Property(
+ *          property="comment",
+ *          description="comment",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
  *          property="created_at",
  *          description="created_at",
  *          type="string",
@@ -55,7 +60,8 @@ class Vote extends Model
     public $fillable = [
         'pollId',
         'userId',
-        'answerId'
+        'answerId',
+        'comment'
     ];
 
     /**

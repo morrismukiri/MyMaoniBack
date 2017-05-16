@@ -17,7 +17,8 @@ class VoteRepository extends BaseRepository
     protected $fieldSearchable = [
         'pollId',
         'userId',
-        'answerId'
+        'answerId',
+        'comment'
     ];
 
     public function model()
