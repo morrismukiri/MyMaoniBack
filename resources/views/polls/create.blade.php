@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Poll
+            Create a Poll
         </h1>
     </section>
     <div class="content">

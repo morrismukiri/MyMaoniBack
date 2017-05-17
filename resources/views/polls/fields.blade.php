@@ -12,7 +12,7 @@
 
 <!-- Parentid Field -->
 <div class="form-group col-sm-12">
-    {!! Form::label('surveyId', 'Survey:') !!}
+    {!! Form::label('surveyId', 'Belonging to Survey:') !!}
     {!! Form::select('surveyId', $survies, null, ['class' => 'form-control']) !!}
 </div>
 
@@ -72,5 +72,5 @@
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('polls.index') !!}" class="btn btn-default">Cancel</a>
+    <a href="{!! url()->previous() !!}" class="btn btn-default">Cancel</a>
 </div>

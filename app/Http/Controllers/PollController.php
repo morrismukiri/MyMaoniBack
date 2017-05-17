@@ -74,7 +74,7 @@ class PollController extends AppBaseController
 
         Flash::success('Poll saved successfully.');
 
-        return redirect(route('polls.index'));
+        return redirect(url('poll/'.$poll->id.'/answers'));
     }
 
     /**

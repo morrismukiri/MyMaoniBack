@@ -4,6 +4,7 @@
     {!! Form::label('pollId', 'Poll:') !!}
     {!! Form::select('pollId',$polls, null, ['class' => 'form-control']) !!}
 </div>
+
 <div class="col-sm-12">
     @if(isset($answers))
         <h4>Current Answers</h4>
@@ -23,5 +24,5 @@
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Add', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('answers.index') !!}" class="btn btn-default">Cancel</a>
+    <a href="{!! url('poll/'.$poll->id.'/answers') !!}" class="btn btn-default">Cancel</a>
 </div>

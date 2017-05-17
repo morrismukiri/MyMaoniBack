@@ -8,6 +8,7 @@ use App\Models\Answers;
 use App\Models\Poll;
 use App\Repositories\AnswersRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Repositories\PollRepository;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
@@ -45,16 +46,18 @@ class AnswersController extends AppBaseController
      *
      * @return Response
      */
-    public function create($pollId = null)
+    public function create($pollId = null, PollRepository $pollRepo)
     {
        $answers= null;
         if ($pollId) {
             $answers =$this->answersRepository->findWhere(['pollId'=>$pollId])->all();
             $polls = Poll::where('id', $pollId)->pluck('title', 'id')->all();
+            $poll = $pollRepo->findWithoutFail($pollId);
+
         } else {
             $polls = Poll::pluck('title', 'id')->all();
         }
-        return view('answers.create')->with(compact('polls'))->with(compact('answers'));
+        return view('answers.create')->with(compact('polls'))->with(compact('poll'))->with(compact('answers'));
     }
 
     /**
@@ -72,7 +75,7 @@ class AnswersController extends AppBaseController
 
         Flash::success('Answers saved successfully.');
 
-        return redirect(route('answers.index'));
+        return redirect(url('answers/create/'.$answers->pollId));
     }
 
     /**

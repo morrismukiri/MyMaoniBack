@@ -65,7 +65,7 @@ class SurveyController extends AppBaseController
 
         Flash::success('Survey saved successfully.');
 
-        return redirect(route('surveys.index'));
+        return redirect(url('survey/'.$survey->id.'/polls'));
     }
 
     /**

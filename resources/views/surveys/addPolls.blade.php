@@ -31,8 +31,8 @@
 
 
                                 <div class='btn-group'>
-                                    <a href="{!! route('polls.show', [$poll->id]) !!}" class='btn btn-default '
-                                       title="View"><i class="glyphicon glyphicon-tasks"></i></a>
+                                    <a href="{!! url('poll/'.$poll->id.'/answers') !!}" class='btn btn-default '
+                                       title="Answers"><i class="glyphicon glyphicon-tasks"></i></a>
                                     <a href="{!! route('polls.show', [$poll->id]) !!}" class='btn btn-default '
                                        title="View"><i class="glyphicon glyphicon-eye-open"></i></a>
                                     <a href="{!! route('polls.edit', [$poll->id]) !!}" class='btn btn-default '
