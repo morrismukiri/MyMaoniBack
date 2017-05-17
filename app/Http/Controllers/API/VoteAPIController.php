@@ -18,25 +18,31 @@ class VoteAPIController extends AppBaseController
 
     public function vote(Request $request)
     {
-        $data = $request->only('userId', 'pollId', 'answerId', 'comment');
-        $validator = Validator::make($request->all(), Vote::$rules);
-        if ($validator->fails()) {
-            $errors = $validator->messages();
-            return response()->json(compact('errors'), 400);
-        } else {
+        $votes = $request->json()->all();//only('userId', 'pollId', 'answerId', 'comment');
 
-            try {
-                $vote = Vote::create($data);
-            } catch (Exception $e) {
-                return response::json(['error' => 'Error adding vote'], response::HTTP_CONFLICT);
+        foreach ($votes as $vote) {
+            $validator = Validator::make($vote, Vote::$rules);
+            if ($validator->fails()) {
+                $errors = $validator->messages();
+                return response()->json(compact('errors'), 400);
+            } else {
+
+                try {
+                    $insertedVotes[] = Vote::create($vote);
+                } catch (Exception $e) {
+                    return response::json(['error' => 'Error adding vote'], response::HTTP_CONFLICT);
+                }
             }
-
-            return response()->json(compact('vote'));
-
         }
+
+        return response()->json(compact('$insertedVotes'));
+
+
     }
-    public function voteResult($id,VoteRepository $voteRepo){
-        $voteResult = $voteRepo->with(['poll','poll.user','poll.votes', 'poll.votes.voter','poll.votes.answer'])->findWhere(['pollId'=>$id]);
+
+    public function voteResult($id, VoteRepository $voteRepo)
+    {
+        $voteResult = $voteRepo->with(['poll', 'poll.user', 'poll.votes', 'poll.votes.voter', 'poll.votes.answer'])->findWhere(['pollId' => $id]);
         return response()->json(compact('voteResult'));
     }
 }
