@@ -171,6 +171,6 @@ class PollController extends AppBaseController
 
     public function PollAnswers(Poll $poll)
     {
-        return view('polls.addanswers')->with('poll', $poll);
+        return view('polls.add_answers')->with('poll', $poll);
     }
 }
