@@ -13,9 +13,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(UsersTableSeeder::class);
         $this->call(CategoriesTableSeeder::class);
+
         $this->call(SurveysTableSeeder::class);
-        $this->call(PollsTableSeeder::class);
+//        $this->call(PollsTableSeeder::class);
         $this->call(OpinionsTableSeeder::class);
-        $this->call(AnswersTableSeeder::class);
+//        $this->call(AnswersTableSeeder::class);
     }
 }

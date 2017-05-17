@@ -13,6 +13,17 @@ class SurveysTableSeeder extends Seeder
     {
 
 
-        factory(\App\Models\Survey::class, 10)->create();
+//        factory(\App\Models\Survey::class, 10)->create();
+        factory(\App\Models\Survey::class, 10)
+            ->create()
+            ->each(function ($survey) {
+                $survey->polls()
+                    ->saveMany(factory(\App\Models\Poll::class, rand(2, 5))->create()
+                        ->each(function ($poll) {
+                            $poll->answers()
+                                ->saveMany(factory(\App\Models\Answers::class,rand(2, 5) )->make());
+                        }));
+
+            });
     }
 }
