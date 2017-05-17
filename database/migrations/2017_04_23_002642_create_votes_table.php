@@ -18,7 +18,7 @@ class CreateVotesTable extends Migration
             $table->integer('pollId');
             $table->integer('userId');
             $table->integer('answerId');
-            $table->string('comment');
+            $table->string('comment')->nullable();
             $table->timestamps();
         });
     }
