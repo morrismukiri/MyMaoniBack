@@ -16,7 +16,7 @@
                 <h3>Polls
                     <div class="pull-right">
                         <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px"
-                           href="{!! route('polls.create') !!}">Add New Poll</a>
+                           href="{!! url('polls/create/'.$survey->id) !!}">Add New Poll</a>
                     </div>
                 </h3>
                 {{--<div class="clearfix"></div>--}}

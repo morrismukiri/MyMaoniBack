@@ -4,8 +4,8 @@
         <th>Survey</th>
         {{--<th>Description</th>--}}
         <th>Category</th>
-        <th>Open time</th>
-        <th>Close time</th>
+        {{--<th>Open time</th>--}}
+        {{--<th>Close time</th>--}}
         {{--<th>Target group</th>--}}
         <th>Type</th>
         <th>Posted by</th>
@@ -18,8 +18,8 @@
             <td>{!! $poll->survey?$poll->survey->title: 'None' !!}</td>
             {{--<td>{!! str_limit($poll->description, $limit = 140, $end = '...') !!}</td>--}}
             <td>{!! $poll->category?$poll->category->name: 'None'!!}</td>
-            <td>{!! $poll->openTime !!}</td>
-            <td>{!! $poll->closeTime !!}</td>
+            {{--<td>{!! $poll->openTime !!}</td>--}}
+            {{--<td>{!! $poll->closeTime !!}</td>--}}
             {{--<td>{!! $poll->targetGroup !!}</td>--}}
             <td>{!! $poll->type !!}</td>
             <td>{!! $poll->user->name !!}</td>

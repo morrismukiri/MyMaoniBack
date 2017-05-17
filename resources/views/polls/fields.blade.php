@@ -5,10 +5,10 @@
 </div>
 
 <!-- Description Field -->
-<div class="form-group col-sm-12 col-lg-12">
-    {!! Form::label('description', 'Description:') !!}
-    {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
-</div>
+{{--<div class="form-group col-sm-12 col-lg-12">--}}
+    {{--{!! Form::label('description', 'Description:') !!}--}}
+    {{--{!! Form::textarea('description', null, ['class' => 'form-control']) !!}--}}
+{{--</div>--}}
 
 <!-- Parentid Field -->
 <div class="form-group col-sm-12">
@@ -17,38 +17,38 @@
 </div>
 
 <!-- SurveyId Field -->
-<div class="form-group col-sm-12">
+<div class="form-group col-sm-6">
     {!! Form::label('categoryId', 'Category:') !!}
     {!! Form::select('categoryId', $categories, null, ['class' => 'form-control']) !!}
 </div>
 <!-- Opentime Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('openTime', 'Opening time:') !!}
-    <div class="input-group dateTimePicker">
-        {!! Form::text('openTime', null, ['class' => 'form-control']) !!}
-        <div class="input-group-addon">
-            <span class="glyphicon glyphicon-calendar"></span>
-        </div>
-    </div>
+{{--<div class="form-group col-sm-6">--}}
+    {{--{!! Form::label('openTime', 'Opening time:') !!}--}}
+    {{--<div class="input-group dateTimePicker">--}}
+        {{--{!! Form::text('openTime', null, ['class' => 'form-control']) !!}--}}
+        {{--<div class="input-group-addon">--}}
+            {{--<span class="glyphicon glyphicon-calendar"></span>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 
-</div>
+{{--</div>--}}
 
 <!-- Closetime Field -->
-<div class="form-group col-sm-6 ">
-    {!! Form::label('closeTime', 'Closing time:') !!}
-    <div class="input-group dateTimePicker">
-        {!! Form::text('closeTime', null, ['class' => 'form-control']) !!}
-        <div class="input-group-addon">
-            <span class="glyphicon glyphicon-calendar"></span>
-        </div>
-    </div>
-</div>
+{{--<div class="form-group col-sm-6 ">--}}
+    {{--{!! Form::label('closeTime', 'Closing time:') !!}--}}
+    {{--<div class="input-group dateTimePicker">--}}
+        {{--{!! Form::text('closeTime', null, ['class' => 'form-control']) !!}--}}
+        {{--<div class="input-group-addon">--}}
+            {{--<span class="glyphicon glyphicon-calendar"></span>--}}
+        {{--</div>--}}
+    {{--</div>--}}
+{{--</div>--}}
 
 <!-- Targetgroup Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('targetGroup', 'Target group:') !!}
-    {!! Form::select('targetGroup', ['0'=>'All','1' => 'Male', '2' => 'Female', '3 ' => 'Youth '], null, ['class' => 'form-control']) !!}
-</div>
+{{--<div class="form-group col-sm-6">--}}
+    {{--{!! Form::label('targetGroup', 'Target group:') !!}--}}
+    {{--{!! Form::select('targetGroup', ['0'=>'All','1' => 'Male', '2' => 'Female', '3 ' => 'Youth '], null, ['class' => 'form-control']) !!}--}}
+{{--</div>--}}
 
 <!-- Type Field -->
 <div class="form-group col-sm-6">

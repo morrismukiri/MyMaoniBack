@@ -16,7 +16,7 @@
                 <h3>Answers
                     <div class="pull-right">
                         <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px"
-                           href="{!! route('answers.create') !!}">Add New Answer</a>
+                           href="{!! url('answers/create/'.$poll->id) !!}">Add New Answer</a>
                     </div>
                 </h3>
                 {{--<div class="clearfix"></div>--}}

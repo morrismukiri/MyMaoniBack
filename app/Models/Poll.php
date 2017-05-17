@@ -107,8 +107,7 @@ class Poll extends Model
      * @var array
      */
     public static $rules = [
-        'title' => 'required',
-        'closeTime' => 'required'
+        'title' => 'required'
     ];
 
     public function survey(){
