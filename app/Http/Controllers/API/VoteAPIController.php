@@ -45,4 +45,18 @@ class VoteAPIController extends AppBaseController
         $voteResult = $voteRepo->with(['poll', 'poll.user', 'poll.votes', 'poll.votes.voter', 'poll.votes.answer'])->findWhere(['pollId' => $id]);
         return response()->json(compact('voteResult'));
     }
+
+    public function user_contributed_surveys($userId, VoteRepository $voteRepository, UserRepository $userRepository)
+    {
+        $userRepo = $userRepository;
+        $voteRepo = $voteRepository;
+
+        //get all surveys contributed by $userId
+
+        $contribution = $voteRepo->with(['poll.survey'])
+            ->findWhere(['userId' => $userId]);
+
+//        $contribution = $userRepo->with(['opinions','votes','surveys','opinions.poll', 'votes.poll','opinions.poll.user', 'votes.poll.user','opinions.poll.opinions', 'votes.poll.opinions','opinions.poll.votes', 'votes.poll.votes'])->findWithoutFail($userId);
+        return $this->sendResponse($contribution->toArray(), 'Contribution retrieved successfully');
+    }
 }
