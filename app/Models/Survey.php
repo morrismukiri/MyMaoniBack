@@ -98,4 +98,8 @@ class Survey extends Model
     public function user(){
         return $this->belongsTo(\App\User::class, 'userId','id');
     }
+
+    public function votes(){
+        return $this->hasManyThrough(Vote::class,Poll::class,'pollId','id');
+    }
 }
