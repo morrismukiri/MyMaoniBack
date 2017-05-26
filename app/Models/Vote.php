@@ -100,5 +100,8 @@ class Vote extends Model
     {
         return $this->hasOne(\App\Models\Answers::class, 'id','answerId');
     }
+    public function survey(){
+        return $this->poll->belongsTo(Survey::class,'surveyId','id');
+    }
 
 }

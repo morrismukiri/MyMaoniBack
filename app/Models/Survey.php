@@ -100,6 +100,6 @@ class Survey extends Model
     }
 
     public function votes(){
-        return $this->hasManyThrough(Vote::class,Poll::class,'pollId','id');
+        return $this->hasManyThrough(Vote::class,Poll::class,'surveyId','pollId','id');
     }
 }

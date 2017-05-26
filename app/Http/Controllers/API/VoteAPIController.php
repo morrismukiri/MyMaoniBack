@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\AppBaseController;
 use App\Models\Vote;
+use App\Repositories\SurveyRepository;
 use App\Repositories\VoteRepository;
 use App\User;
 use Illuminate\Http\Request;
@@ -46,15 +47,21 @@ class VoteAPIController extends AppBaseController
         return response()->json(compact('voteResult'));
     }
 
-    public function user_contributed_surveys($userId, VoteRepository $voteRepository, UserRepository $userRepository)
+    public function user_contributed_surveys($userId, VoteRepository $voteRepository, UserRepository $userRepository, SurveyRepository $surveyRepository)
     {
+
+        $surveyRepo = $surveyRepository;
         $userRepo = $userRepository;
         $voteRepo = $voteRepository;
 
+        $contribution = $surveyRepo->with(['votes'])->whereHas('polls.votes', function ($query) use ($userId) {
+            $query->where('userId', $userId);
+        })->all();
+//            ->findWhere(['userId' => $userId]);
         //get all surveys contributed by $userId
 
-        $contribution = $voteRepo->with(['poll.survey'])
-            ->findWhere(['userId' => $userId]);
+//        $contribution = $voteRepo->with(['poll.survey'])
+//            ->findWhere(['userId' => $userId]);
 
 //        $contribution = $userRepo->with(['opinions','votes','surveys','opinions.poll', 'votes.poll','opinions.poll.user', 'votes.poll.user','opinions.poll.opinions', 'votes.poll.opinions','opinions.poll.votes', 'votes.poll.votes'])->findWithoutFail($userId);
         return $this->sendResponse($contribution->toArray(), 'Contribution retrieved successfully');
