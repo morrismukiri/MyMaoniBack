@@ -49,7 +49,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'username', 'phone', 'gender', 'address', 'dob'
+        'name', 'email', 'password', 'username', 'phone', 'gender', 'address', 'county', 'constituency', 'ward', 'dob'
     ];
 
 
@@ -64,6 +64,9 @@ class User extends Authenticatable
         'phone' => 'string',
         'gender' => 'string',
         'address' => 'string',
+        'county' => 'string',
+        'constituency' => 'string',
+        'ward' => 'string',
         'dob' => 'date',
         'email' => 'string',
         'password' => 'string'
@@ -104,16 +107,24 @@ class User extends Authenticatable
             }
         }
     }
-    public function polls(){
-        return $this->hasMany(\App\Models\Poll::class,'userId','id');
+
+    public function polls()
+    {
+        return $this->hasMany(\App\Models\Poll::class, 'userId', 'id');
     }
-    public function surveys(){
-        return $this->hasMany(\App\Models\Survey::class,'userId','id');
+
+    public function surveys()
+    {
+        return $this->hasMany(\App\Models\Survey::class, 'userId', 'id');
     }
-    public function opinions(){
-        return $this->hasMany(\App\Models\Opinion::class, 'userId','id');
+
+    public function opinions()
+    {
+        return $this->hasMany(\App\Models\Opinion::class, 'userId', 'id');
     }
-    public function votes(){
-        return $this->hasMany(\App\Models\Vote::class,'userId','id');
+
+    public function votes()
+    {
+        return $this->hasMany(\App\Models\Vote::class, 'userId', 'id');
     }
 }
