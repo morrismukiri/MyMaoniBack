@@ -90,7 +90,7 @@ class Survey extends Model
         'closeTime' => 'required'
     ];
 
-    protected $with = ['polls','polls.answers','user'];
+//    protected $with = ['polls','polls.answers','user'];
 
     public function polls(){
         return $this->hasMany(Poll::class,'surveyId','id');
