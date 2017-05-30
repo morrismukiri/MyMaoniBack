@@ -278,4 +278,9 @@ class SurveyAPIController extends AppBaseController
 
         return $this->sendResponse($id, 'Survey deleted successfully');
     }
+    public function surveyResult($surveyId){
+        $surveyResult = $this->surveyRepository->with(['polls.votes','polls.votes.answer'])->findWithoutFail($surveyId);
+        return $this->sendResponse($surveyResult->toArray(), 'survey result retrieved successfully');
+
+    }
 }
