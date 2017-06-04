@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\AppBaseController;
+use App\Http\Requests\UpdateUserRequest;
 use App\User;
 use Illuminate\Http\Request;
 use JWTAuth;
@@ -15,6 +16,12 @@ class AuthenticateController extends AppBaseController
 {
     /** @var  CategoryRepository */
     private $userRepository;
+
+    public function __construct(UserRepository $userRepo)
+    {
+//        $this->middleware('auth');
+        $this->userRepository = $userRepo;
+    }
 
     public function authenticate(Request $request)
     {
@@ -66,7 +73,7 @@ class AuthenticateController extends AppBaseController
         $data = [
             'name' => $request['name'],
             'email' => $request['email'],
-            'username' => $request['username']?$request['username']:$request['email'],
+            'username' => $request['username'] ? $request['username'] : $request['email'],
             'phone' => $request['phone'],
             'gender' => $request['gender'],
             'address' => $request['address'],
@@ -75,9 +82,9 @@ class AuthenticateController extends AppBaseController
         ];
         $validator = Validator::make($request->all(), User::$rules);
         if ($validator->fails()) {
-            $errors= $validator->messages();
-            return response()->json(compact('errors'),400);
-        }else{
+            $errors = $validator->messages();
+            return response()->json(compact('errors'), 400);
+        } else {
 //process the request
         }
         try {
@@ -99,5 +106,21 @@ class AuthenticateController extends AppBaseController
         }
 
         return $this->sendResponse($user, 'User retrieved successfully');
+    }
+
+    public function saveUserDetail($id, UpdateUserRequest $request)
+    {
+        $user = $this->userRepository->findWithoutFail($id);
+
+        if (empty($user)) {
+            return $this->sendError('User not found');
+        }
+
+        if($user = $this->userRepository->update($request->all(), $id)) {
+
+            return $this->sendResponse($user, 'User updated successfully');
+        }else{
+            return response::json(['error' => 'Could not update user.'], response::HTTP_CONFLICT);
+        }
     }
 }

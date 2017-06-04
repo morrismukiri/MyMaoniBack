@@ -25,12 +25,13 @@ class UpdateUserRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
             'name' => 'required',
-        'username' => 'required|alpha_dash|max:15|unique:users,username,'.$this->id,
-        'phone' => 'required|unique:users,phone,'.$this->id,
-        'gender' => 'required',
-        'email' => 'required|email:unique:users,email,'.$this->id
-    ];
+            'username' => 'unique:users,username,' .$this->id,
+            'phone' => 'required|unique:users,phone,' .$this->id,
+            'gender' => 'required',
+            'email' => 'required|email:unique:users,email,' .$this->id
+        ];
     }
 }
