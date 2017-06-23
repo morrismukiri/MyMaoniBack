@@ -44,4 +44,4 @@ Route::get('/pollresult/{id}', 'PollAPIController@pollResult');
 Route::get('/pollresultnumbers/{id}', 'PollAPIController@getPollVoteNumbers');
 
 Route::resource('surveys', 'SurveyAPIController');
-Route::get('/surveys/result/{id}', 'surveyAPIController@surveyResult');
+Route::get('/surveys/result/{id}', 'SurveyAPIController@surveyResult');
