@@ -80,5 +80,14 @@ class Comments extends Model
         'comment' => 'required'
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(\App\User::class, 'userId', 'id');
+    }
+
+    public function survey()
+    {
+        return $this->belongsTo(\App\Models\Survey::class, 'surveyId', 'id');
+    }
     
 }

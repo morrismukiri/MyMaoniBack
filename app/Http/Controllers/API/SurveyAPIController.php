@@ -156,7 +156,7 @@ class SurveyAPIController extends AppBaseController
     public function show($id)
     {
         /** @var Survey $survey */
-        $survey = $this->surveyRepository->findWithoutFail($id);
+        $survey = $this->surveyRepository->with(['comments','comments.user'])->findWithoutFail($id);
 
         if (empty($survey)) {
             return $this->sendError('Survey not found');
