@@ -45,3 +45,9 @@ Route::get('/pollresultnumbers/{id}', 'PollAPIController@getPollVoteNumbers');
 
 Route::resource('surveys', 'SurveyAPIController');
 Route::get('/surveys/result/{id}', 'SurveyAPIController@surveyResult');
+
+
+
+Route::resource('comments', 'CommentsAPIController');
+
+Route::resource('comments', 'CommentsAPIController');

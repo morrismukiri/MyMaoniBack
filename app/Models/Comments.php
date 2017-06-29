@@ -6,8 +6,8 @@ use Eloquent as Model;
 
 /**
  * @SWG\Definition(
- *      definition="Opinion",
- *      required={"userId", "pollId", "comment"},
+ *      definition="Comments",
+ *      required={"userId", "surveyId", "comment"},
  *      @SWG\Property(
  *          property="id",
  *          description="id",
@@ -21,8 +21,8 @@ use Eloquent as Model;
  *          format="int32"
  *      ),
  *      @SWG\Property(
- *          property="pollId",
- *          description="pollId",
+ *          property="surveyId",
+ *          description="surveyId",
  *          type="integer",
  *          format="int32"
  *      ),
@@ -45,15 +45,16 @@ use Eloquent as Model;
  *      )
  * )
  */
-class Opinion extends Model
+class Comments extends Model
 {
 
-    public $table = 'opinions';
+    public $table = 'comments';
+    
 
 
     public $fillable = [
         'userId',
-        'pollId',
+        'surveyId',
         'comment'
     ];
 
@@ -64,7 +65,7 @@ class Opinion extends Model
      */
     protected $casts = [
         'userId' => 'integer',
-        'pollId' => 'integer',
+        'surveyId' => 'integer',
         'comment' => 'string'
     ];
 
@@ -74,20 +75,10 @@ class Opinion extends Model
      * @var array
      */
     public static $rules = [
-
-        'pollId' => 'required',
+        'userId' => 'required',
+        'surveyId' => 'required',
         'comment' => 'required'
     ];
 
-    public function user()
-    {
-        return $this->belongsTo(\App\User::class, 'userId', 'id');
-    }
-
-    public function poll()
-    {
-        return $this->belongsTo(\App\Models\Poll::class, 'pollId', 'id');
-    }
-
-
+    
 }

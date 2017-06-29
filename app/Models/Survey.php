@@ -102,4 +102,8 @@ class Survey extends Model
     public function votes(){
         return $this->hasManyThrough(Vote::class,Poll::class,'surveyId','pollId','id');
     }
+
+    public function comments(){
+        return $this->hasMany(\App\Models\Comments::class,'surveyId','id');
+    }
 }
