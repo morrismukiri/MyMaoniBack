@@ -44,7 +44,7 @@ Route::resource('surveys', 'SurveyController');
 
 Route::get('/survey/{survey}/polls','SurveyController@SurveyPolls');
 Route::get('/poll/{poll}/answers','PollController@PollAnswers');
-
+Route::get('/survey/{survey}/results','SurveyController@SurveyResults');
 
 
 Route::resource('comments', 'CommentsController');

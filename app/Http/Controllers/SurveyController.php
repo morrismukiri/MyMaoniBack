@@ -160,4 +160,8 @@ class SurveyController extends AppBaseController
 
         return view('surveys.addPolls')->with('survey', $survey);
     }
+    public function SurveyResults(Survey $survey){
+
+        return view('surveys.sureveyResults')->with('survey', $survey);
+    }
 }
