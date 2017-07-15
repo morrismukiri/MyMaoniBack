@@ -128,5 +128,11 @@ class Poll extends Model
     public function votes(){
         return $this->hasMany(Vote::class,'pollId','id');
     }
+    public function votesCount(){
+        return $this->votes()
+            ->selectRaw(' answerId, count(*) as aggregate')
+            ->groupBy('answerId');
+    }
+
 
 }
