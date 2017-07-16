@@ -20,9 +20,12 @@
             <td>
                 {!! Form::open(['route' => ['surveys.destroy', $survey->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
-                    <a href="{!! url('/survey/'.$survey->id.'/polls') !!}" class='btn btn-default btn-xs'><i
+                    <a href="{!! url('/survey/'.$survey->id.'/polls') !!}" title="Polls" class='btn btn-default btn-xs'><i
                                 class="glyphicon glyphicon-tasks"></i></a>
-                    <a href="{!! route('surveys.show', [$survey->id]) !!}" class='btn btn-default btn-xs'><i
+                    <a href="{!! url('/survey/'.$survey->id.'/results') !!}" title="Results" class='btn btn-default btn-xs'><i
+                                class="glyphicon glyphicon-signal"></i></a>
+
+                    <a href="{!! route('surveys.show', [$survey->id]) !!}" title="Details" class='btn btn-default btn-xs'><i
                                 class="glyphicon glyphicon-eye-open"></i></a>
                     <a href="{!! route('surveys.edit', [$survey->id]) !!}" class='btn btn-default btn-xs'><i
                                 class="glyphicon glyphicon-edit"></i></a>
