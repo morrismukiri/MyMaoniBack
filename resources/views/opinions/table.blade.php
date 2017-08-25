@@ -7,9 +7,10 @@
     </thead>
     <tbody>
     @foreach($opinions as $opinion)
+        @if($opinion->poll)
         <tr>
             <td>{!! $opinion->user->name!!}</td>
-            <td>{!! $opinion->poll->title!!}</td>
+            <td>{!! $opinion->poll->title !!}</td>
             <td>{!! $opinion->comment !!}</td>
             <td>
                 {!! Form::open(['route' => ['opinions.destroy', $opinion->id], 'method' => 'delete']) !!}
@@ -21,6 +22,7 @@
                 {!! Form::close() !!}
             </td>
         </tr>
+        @endif
     @endforeach
     </tbody>
 </table>

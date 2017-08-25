@@ -33,7 +33,7 @@ class OpinionController extends AppBaseController
     public function index(Request $request)
     {
         $this->opinionRepository->pushCriteria(new RequestCriteria($request));
-        $opinions = $this->opinionRepository->all();
+        $opinions = $this->opinionRepository->with(['poll'])->all();
 
         return view('opinions.index')
             ->with('opinions', $opinions);
