@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Poll;
+use App\Models\Survey;
+use App\Models\Vote;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -23,11 +28,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $surveys_count = Survey::count();
+        $polls_count = Poll::count();
+        $participation_count = DB::table('votes')->groupBy('pollId')->count();
+        $users_count = User::count();
+        return view('home', compact('surveys_count', 'polls_count', 'participation_count', 'users_count'));
     }
 
     public function ps()
     {
         return view('passport_components');
-    }    
+    }
 }

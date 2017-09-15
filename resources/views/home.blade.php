@@ -6,21 +6,23 @@
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <!-- Apply any bg-* class to to the info-box to color it -->
+                <a href="surveys" style="color: inherit; text-decoration: inherit;">
                 <div class="info-box bg-green">
                     <span class="info-box-icon"><i class="fa fa-tasks"></i></span>
+                        <div class="info-box-content">
+                            <span class="info-box-text"> Surveys</span>
+                            <span class="info-box-number">{{$surveys_count}}</span>
+                            <!-- The progress section is optional -->
+                            {{--<div class="progress">--}}
+                            {{--<div class="progress-bar" style="width: 70%"></div>--}}
+                            {{--</div>--}}
+                            {{--<span class="progress-description">--}}
+                            {{--70% Increase in 30 Days--}}
+                            {{--</span>--}}
+                        </div><!-- /.info-box-content -->
 
-                    <div class="info-box-content">
-                        <span class="info-box-text">Surveys</span>
-                        <span class="info-box-number">10</span>
-                        <!-- The progress section is optional -->
-                        <div class="progress">
-                            <div class="progress-bar" style="width: 70%"></div>
-                        </div>
-    <span class="progress-description">
-      70% Increase in 30 Days
-    </span>
-                    </div><!-- /.info-box-content -->
                 </div><!-- /.info-box -->
+                </a>
 
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
@@ -30,46 +32,50 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">Participation</span>
-                        <span class="info-box-number">11 survey replies</span>
+                        <span class="info-box-number">{{$participation_count}} poll replies</span>
                         <!-- The progress section is optional -->
                         {{--<div class="progress">--}}
                         {{--<div class="progress-bar" style="width: 75%"></div>--}}
                         {{--</div>--}}
-                        <span class="progress-description">
-      75% Increase in 30 Days
-    </span>
+                        {{--<span class="progress-description">--}}
+                        {{--75% Increase in 30 Days--}}
+                        {{--</span>--}}
                     </div><!-- /.info-box-content -->
                 </div><!-- /.info-box -->
             </div>
 
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <!-- Apply any bg-* class to to the info-box to color it -->
-                <div class="info-box bg-blue">
-                    <span class="info-box-icon"><i class="fa fa-users"></i></span>
+                <a href="users" style="color: inherit; text-decoration: inherit;">
+                    <div class="info-box bg-blue">
+                        <span class="info-box-icon"><i class="fa fa-users"></i></span>
 
-                    <div class="info-box-content">
-                        <span class="info-box-text">Users</span>
-                        <span class="info-box-number">11</span>
-                        <!-- The progress section is optional -->
-                        <div class="progress">
-                            <div class="progress-bar" style="width: 99%"></div>
-                        </div>
-    <span class="progress-description">
-      99% Increase in 30 Days
-    </span>
-                    </div><!-- /.info-box-content -->
-                </div><!-- /.info-box -->
+                        <div class="info-box-content">
+                            <span class="info-box-text">Users</span>
+                            <span class="info-box-number">{{$users_count}}</span>
+                            <!-- The progress section is optional -->
+                            {{--<div class="progress">--}}
+                            {{--<div class="progress-bar" style="width: 99%"></div>--}}
+                            {{--</div>--}}
+                            {{--<span class="progress-description">--}}
+                            {{--99% Increase in 30 Days--}}
+                            {{--</span>--}}
+                        </div><!-- /.info-box-content -->
+                    </div><!-- /.info-box -->
+                </a>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box">
-                    <!-- Apply any bg-* class to to the icon to color it -->
-                    <span class="info-box-icon bg-red"><i class="fa fa-star-o"></i></span>
+                <a href="polls" style="color: inherit; text-decoration: inherit;">
+                    <div class="info-box">
+                        <!-- Apply any bg-* class to to the icon to color it -->
+                        <span class="info-box-icon bg-red"><i class="fa fa-star-o"></i></span>
 
-                    <div class="info-box-content">
-                        <span class="info-box-text">polls</span>
-                        <span class="info-box-number">10</span>
-                    </div><!-- /.info-box-content -->
-                </div><!-- /.info-box -->
+                        <div class="info-box-content">
+                            <span class="info-box-text">polls</span>
+                            <span class="info-box-number">{{$polls_count}}</span>
+                        </div><!-- /.info-box-content -->
+                    </div><!-- /.info-box -->
+                </a>
             </div>
 
         </div>
@@ -117,42 +123,42 @@
                                     <strong>Goal Completion</strong>
                                 </p>
 
-                                {{--<div class="progress-group">--}}
-                                    {{--<span class="progress-text">Add Products to Cart</span>--}}
-                                    {{--<span class="progress-number"><b>160</b>/200</span>--}}
+                            {{--<div class="progress-group">--}}
+                            {{--<span class="progress-text">Add Products to Cart</span>--}}
+                            {{--<span class="progress-number"><b>160</b>/200</span>--}}
 
-                                    {{--<div class="progress sm">--}}
-                                        {{--<div class="progress-bar progress-bar-aqua" style="width: 80%"></div>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                                {{--<!-- /.progress-group -->--}}
-                                {{--<div class="progress-group">--}}
-                                    {{--<span class="progress-text">Complete Purchase</span>--}}
-                                    {{--<span class="progress-number"><b>310</b>/400</span>--}}
+                            {{--<div class="progress sm">--}}
+                            {{--<div class="progress-bar progress-bar-aqua" style="width: 80%"></div>--}}
+                            {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<!-- /.progress-group -->--}}
+                            {{--<div class="progress-group">--}}
+                            {{--<span class="progress-text">Complete Purchase</span>--}}
+                            {{--<span class="progress-number"><b>310</b>/400</span>--}}
 
-                                    {{--<div class="progress sm">--}}
-                                        {{--<div class="progress-bar progress-bar-red" style="width: 80%"></div>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                                {{--<!-- /.progress-group -->--}}
-                                {{--<div class="progress-group">--}}
-                                    {{--<span class="progress-text">Visit Premium Page</span>--}}
-                                    {{--<span class="progress-number"><b>480</b>/800</span>--}}
+                            {{--<div class="progress sm">--}}
+                            {{--<div class="progress-bar progress-bar-red" style="width: 80%"></div>--}}
+                            {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<!-- /.progress-group -->--}}
+                            {{--<div class="progress-group">--}}
+                            {{--<span class="progress-text">Visit Premium Page</span>--}}
+                            {{--<span class="progress-number"><b>480</b>/800</span>--}}
 
-                                    {{--<div class="progress sm">--}}
-                                        {{--<div class="progress-bar progress-bar-green" style="width: 80%"></div>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                                {{--<!-- /.progress-group -->--}}
-                                {{--<div class="progress-group">--}}
-                                    {{--<span class="progress-text">Send Inquiries</span>--}}
-                                    {{--<span class="progress-number"><b>250</b>/500</span>--}}
+                            {{--<div class="progress sm">--}}
+                            {{--<div class="progress-bar progress-bar-green" style="width: 80%"></div>--}}
+                            {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<!-- /.progress-group -->--}}
+                            {{--<div class="progress-group">--}}
+                            {{--<span class="progress-text">Send Inquiries</span>--}}
+                            {{--<span class="progress-number"><b>250</b>/500</span>--}}
 
-                                    {{--<div class="progress sm">--}}
-                                        {{--<div class="progress-bar progress-bar-yellow" style="width: 80%"></div>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                                <!-- /.progress-group -->
+                            {{--<div class="progress sm">--}}
+                            {{--<div class="progress-bar progress-bar-yellow" style="width: 80%"></div>--}}
+                            {{--</div>--}}
+                            {{--</div>--}}
+                            <!-- /.progress-group -->
                             </div>
                             <!-- /.col -->
                         </div>
