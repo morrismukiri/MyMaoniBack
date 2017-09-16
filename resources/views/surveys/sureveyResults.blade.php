@@ -48,7 +48,7 @@
                                     </table>
                                 </div>
                                 <div class="col-md-6 col-sm-12">
-                                    <canvas id="poll_{{$poll->id}}" class="poll_result_graph"></canvas>
+                                    <canvas id="poll_{{$poll->id}}" class="poll_result_graph" height="250"></canvas>
                                 </div>
                             </div>
                         </div>
