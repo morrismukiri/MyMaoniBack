@@ -47,6 +47,7 @@ Route::resource('surveys', 'SurveyAPIController');
 Route::get('/surveys/result/{id}', 'SurveyAPIController@surveyResult');
 
 Route::post('/sms', 'SMSController@sendSMS');
+Route::get('/verify_phone/{phone}', 'AuthenticateController@send_verification_code');
 
 
 Route::resource('comments', 'CommentsAPIController');

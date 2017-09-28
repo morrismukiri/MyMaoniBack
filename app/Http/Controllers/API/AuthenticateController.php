@@ -11,6 +11,7 @@ use League\Flysystem\Exception;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Repositories\UserRepository;
 use Validator;
+use Response;
 
 class AuthenticateController extends AppBaseController
 {
@@ -116,11 +117,19 @@ class AuthenticateController extends AppBaseController
             return $this->sendError('User not found');
         }
 
-        if($user = $this->userRepository->update($request->all(), $id)) {
+        if ($user = $this->userRepository->update($request->all(), $id)) {
 
             return $this->sendResponse($user, 'User updated successfully');
-        }else{
+        } else {
             return response::json(['error' => 'Could not update user.'], response::HTTP_CONFLICT);
         }
+    }
+
+    public function send_verification_code($phone)
+    {
+        $code = str_random(4);
+        app('App\Http\Controllers\API\SMSController')->send($phone, 'Your MyMAoni Validation code is ' . $code);
+
+        return response::json(compact('code'));
     }
 }
