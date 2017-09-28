@@ -34,5 +34,9 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    'AfricasTalking' => [
+        "USERNAME" => env('AFRICASTALKING_USERNAME', 'test'),
+        "API_KEY" => env('AFRICASTALKING_API_KEY', 'test'),
+    ]
 
 ];

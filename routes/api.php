@@ -46,6 +46,7 @@ Route::get('/pollresultnumbers/{id}', 'PollAPIController@getPollVoteNumbers');
 Route::resource('surveys', 'SurveyAPIController');
 Route::get('/surveys/result/{id}', 'SurveyAPIController@surveyResult');
 
+Route::post('/sms', 'SMSController@sendSMS');
 
 
 Route::resource('comments', 'CommentsAPIController');
