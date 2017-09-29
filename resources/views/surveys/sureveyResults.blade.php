@@ -100,7 +100,7 @@ poll_{{$poll->id}}_data.push({{ $poll->votes->where('answerId',$answer->id)->cou
         ;
 
         var poll_{{$poll->id}}_chart = new Chart(document.getElementById("poll_{{$poll->id}}"), {
-            type: 'doughnut',
+            type: 'bar',
             data: data_{{$poll->id}}
         });
         @endforeach
