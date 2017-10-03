@@ -132,4 +132,9 @@ class AuthenticateController extends AppBaseController
 
         return response::json(compact('code'));
     }
+
+    public function password_reset(Request $request)
+    {
+
+    }
 }

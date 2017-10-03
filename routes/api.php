@@ -23,6 +23,8 @@ Route::post('/authenticate', 'AuthenticateController@authenticate');
 Route::post('/signup', 'AuthenticateController@signup');
 Route::resource('polls', 'PollAPIController');
 
+Route::post('/password_reset', 'AuthenticateController@password_reset');
+
 Route::get('/user/details','AuthenticateController@getAuthenticatedUser');
 Route::get('/userdetail/{id}','AuthenticateController@getUserDetail');
 Route::put('/userdetail/{id}','AuthenticateController@saveUserDetail');
