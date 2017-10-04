@@ -12,11 +12,14 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Repositories\UserRepository;
 use Validator;
 use Response;
-
+use Illuminate\Foundation\Auth\ResetsPasswords;
 class AuthenticateController extends AppBaseController
 {
     /** @var  CategoryRepository */
     private $userRepository;
+
+    use ResetsPasswords;
+
 
     public function __construct(UserRepository $userRepo)
     {
