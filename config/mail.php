@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'port' => env('MAIL_PORT', 465),
+    'port' => env('MAIL_PORT',465 ),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => 'noreply@mymaoni.com',
-        'name' => 'MyMaoni',
+        'address' => 'hello@example.com',
+        'name' => 'Example',
     ],
 
     /*
@@ -84,7 +84,7 @@ return [
     |
     */
 
-    'username' => env('noreply@mymaoni.com'),
+    'username' => env('MAIL_USERNAME','noreply@mymaoni.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -97,7 +97,7 @@ return [
     |
     */
 
-    'password' => env('nipemaoni'),
+    'password' => env('MAIL_PASSWORD','nipemaoni'),
 
     /*
     |--------------------------------------------------------------------------
