@@ -23,7 +23,7 @@
             {{--<td>{!! $poll->targetGroup !!}</td>--}}
             <td>{!! $poll->type !!}</td>
             <td>{!! $poll->user->name !!}</td>
-            <td>
+            <td colspan="3">
                 {!! Form::open(['route' => ['polls.destroy', $poll->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
                     <a href="{!! url('/poll/'.$poll->id.'/answers') !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-tasks"></i></a>
@@ -36,4 +36,13 @@
         </tr>
     @endforeach
     </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="8">
+            <div class="text-center">
+                {{ $polls->links() }}
+            </div>
+        </td>
+    </tr>
+    </tfoot>
 </table>

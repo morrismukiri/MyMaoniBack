@@ -35,7 +35,7 @@ class PollController extends AppBaseController
     public function index(Request $request)
     {
         $this->pollRepository->pushCriteria(new RequestCriteria($request));
-        $polls = $this->pollRepository->all();
+        $polls = $this->pollRepository->paginate(10);
 
         return view('polls.index')
             ->with('polls', $polls);
