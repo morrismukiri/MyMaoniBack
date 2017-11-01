@@ -30,7 +30,7 @@ class CommentsController extends AppBaseController
     public function index(Request $request)
     {
         $this->commentsRepository->pushCriteria(new RequestCriteria($request));
-        $comments = $this->commentsRepository->all();
+        $comments = $this->commentsRepository->paginate(10);
 
         return view('comments.index')
             ->with('comments', $comments);
