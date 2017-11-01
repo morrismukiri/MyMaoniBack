@@ -26,4 +26,13 @@
         </tr>
     @endforeach
     </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="8">
+            <div class="text-center">
+                {{ $categories->links() }}
+            </div>
+        </td>
+    </tr>
+    </tfoot>
 </table>

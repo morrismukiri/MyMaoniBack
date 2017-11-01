@@ -27,7 +27,7 @@
     <tr>
         <td colspan="8">
             <div class="text-center">
-                {{ $comment->links() }}
+                {{ $comments->links() }}
             </div>
         </td>
     </tr>
