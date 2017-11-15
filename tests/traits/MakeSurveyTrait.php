@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Faker\Factory as Faker;
 use App\Models\Survey;
 use App\Repositories\SurveyRepository;
@@ -39,18 +40,8 @@ trait MakeSurveyTrait
      */
     public function fakeSurveyData($surveyFields = [])
     {
-        $fake = Faker::create();
 
-        return array_merge([
-            'title' => $fake->word,
-            'description' => $fake->text,
-            'openTime' => $fake->word,
-            'closeTime' => $fake->word,
-            'targetGroup' => $fake->randomDigitNotNull,
-            'type' => $fake->word,
-            'userId' => $fake->randomDigitNotNull,
-            'created_at' => $fake->word,
-            'updated_at' => $fake->word
-        ], $surveyFields);
+        return factory(App\Models\Survey::class)->make()['attributes'];
+
     }
 }

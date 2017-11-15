@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Faker\Factory as Faker;
 use App\Models\Opinion;
 use App\Repositories\OpinionRepository;
@@ -39,14 +40,7 @@ trait MakeOpinionTrait
      */
     public function fakeOpinionData($opinionFields = [])
     {
-        $fake = Faker::create();
+        return factory(App\Models\Opinion::class)->make()['attributes'];
 
-        return array_merge([
-            'userId' => $fake->randomDigitNotNull,
-            'pollId' => $fake->randomDigitNotNull,
-            'comment' => $fake->sentence(10),
-            'created_at' => $fake->dateTime,
-            'updated_at' => $fake->dateTime
-        ], $opinionFields);
     }
 }

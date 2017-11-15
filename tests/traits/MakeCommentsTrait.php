@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Faker\Factory as Faker;
 use App\Models\Comments;
 use App\Repositories\CommentsRepository;
@@ -39,14 +40,7 @@ trait MakeCommentsTrait
      */
     public function fakeCommentsData($commentsFields = [])
     {
-        $fake = Faker::create();
+        return factory(App\Models\Comments::class)->make()['attributes'];
 
-        return array_merge([
-            'userId' => $fake->randomDigitNotNull,
-            'surveyId' => $fake->randomDigitNotNull,
-            'comment' => $fake->word,
-            'created_at' => $fake->word,
-            'updated_at' => $fake->word
-        ], $commentsFields);
     }
 }

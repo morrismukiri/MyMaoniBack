@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Faker\Factory as Faker;
 use App\Models\Category;
 use App\Repositories\CategoryRepository;
@@ -39,14 +40,7 @@ trait MakeCategoryTrait
      */
     public function fakeCategoryData($categoryFields = [])
     {
-        $fake = Faker::create();
 
-        return array_merge([
-            'name' => $fake->word,
-            'description' => $fake->text,
-            'parentId' => $fake->randomDigitNotNull,
-            'created_at' => $fake->dateTime,
-            'updated_at' => $fake->dateTime
-        ], $categoryFields);
+        return factory(App\Models\Category::class)->make()['attributes'];
     }
 }

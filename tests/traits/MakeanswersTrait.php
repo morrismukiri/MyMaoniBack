@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Faker\Factory as Faker;
 use App\Models\Answers;
 use App\Repositories\AnswersRepository;
@@ -39,13 +40,6 @@ trait MakeAnswersTrait
      */
     public function fakeAnswersData($answersFields = [])
     {
-        $fake = Faker::create();
-
-        return array_merge([
-            'pollId' => $fake->randomDigitNotNull,
-            'text' => $fake->word,
-            'created_at' => $fake->word,
-            'updated_at' => $fake->word
-        ], $answersFields);
+        return factory(App\Models\Answers::class)->make()['attributes'];
     }
 }
