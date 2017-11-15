@@ -51,7 +51,7 @@ class PollApiTest extends TestCase
     public function testDeletePoll()
     {
         $poll = $this->makePoll();
-        $this->json('DELETE', '/api/v1/polls/'.$poll->iidd);
+        $this->json('DELETE', '/api/v1/polls/'.$poll->id);
 
         $this->assertApiSuccess();
         $this->json('GET', '/api/v1/polls/'.$poll->id);

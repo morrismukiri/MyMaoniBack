@@ -48,7 +48,7 @@ class AnswersApiTest extends TestCase
     public function testDeleteAnswers()
     {
         $answers = $this->makeAnswers();
-        $this->json('DELETE', '/api/v1/answers/'.$answers->iidd);
+        $this->json('DELETE', '/api/v1/answers/'.$answers->id);
 
         $this->assertApiSuccess();
         $this->json('GET', '/api/v1/answers/'.$answers->id);

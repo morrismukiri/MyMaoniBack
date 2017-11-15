@@ -48,7 +48,7 @@ class CategoryApiTest extends TestCase
     public function testDeleteCategory()
     {
         $category = $this->makeCategory();
-        $this->json('DELETE', '/api/v1/categories/'.$category->iidd);
+        $this->json('DELETE', '/api/v1/categories/'.$category->id);
 
         $this->assertApiSuccess();
         $this->json('GET', '/api/v1/categories/'.$category->id);

@@ -48,7 +48,7 @@ class OpinionApiTest extends TestCase
     public function testDeleteOpinion()
     {
         $opinion = $this->makeOpinion();
-        $this->json('DELETE', '/api/v1/opinions/'.$opinion->iidd);
+        $this->json('DELETE', '/api/v1/opinions/'.$opinion->id);
 
         $this->assertApiSuccess();
         $this->json('GET', '/api/v1/opinions/'.$opinion->id);
