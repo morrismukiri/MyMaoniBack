@@ -16,7 +16,6 @@ class SurveyRepository extends BaseRepository
         'openTime',
         'closeTime',
         'targetGroup',
-        'type',
         'userId'
     ];
 
