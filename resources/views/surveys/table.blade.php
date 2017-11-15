@@ -36,4 +36,13 @@
         </tr>
     @endforeach
     </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="8">
+            <div class="text-center">
+                {{ $surveys->links() }}
+            </div>
+        </td>
+    </tr>
+    </tfoot>
 </table>

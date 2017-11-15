@@ -33,7 +33,7 @@ class SurveyController extends AppBaseController
     public function index(Request $request)
     {
         $this->surveyRepository->pushCriteria(new RequestCriteria($request));
-        $surveys = $this->surveyRepository->all();
+        $surveys = $this->surveyRepository->paginate(10);
 
         return view('surveys.index')
             ->with('surveys', $surveys);
