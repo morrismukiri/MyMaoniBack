@@ -32,3 +32,6 @@
     <a href="{!! route('comments.index') !!}"><i class="fa fa-edit"></i><span>Comments</span></a>
 </li>
 
+<li class="{{ Request::is('passport') ? 'active' : '' }}">
+    <a href="{!! route('passport') !!}"><i class="fa fa-settings"></i><span>API Authentication</span></a>
+</li>

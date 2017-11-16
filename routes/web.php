@@ -50,3 +50,8 @@ Route::get('/survey/{survey}/results','SurveyController@SurveyResults');
 Route::resource('comments', 'CommentsController');
 
 Route::resource('comments', 'CommentsController');
+
+Route::get('/passport',function ()
+{
+    return view("passport_components");
+})->name('passport');
