@@ -18,7 +18,7 @@
     "infyomlabs/swagger-generator": "dev-master",
     "jlapp/swaggervel": "dev-master",
     "doctrine/dbal": "~2.3",
-    "laravel/passport": "~1.0",
+    "laravel/passport": "~1.0.18",
     "tymon/jwt-auth": "0.5.*",
     "barryvdh/laravel-cors": "^0.9.2"
   },
