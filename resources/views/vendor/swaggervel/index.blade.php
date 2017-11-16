@@ -9,7 +9,7 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Swagger UI</title>
+        <title>MyMaoni API Docs</title>
         <link rel="icon" type="image/png" href="/vendor/swaggervel/images/favicon-32x32.png" sizes="32x32" />
         <link rel="icon" type="image/png" href="/vendor/swaggervel/images/favicon-16x16.png" sizes="16x16" />
         <link href='/vendor/swaggervel/css/typography.css' media='screen' rel='stylesheet' type='text/css'/>
@@ -132,7 +132,7 @@ header("Access-Control-Allow-Headers: X-Requested-With");
     <body class="swagger-section">
         <div id='header'>
             <div class="swagger-ui-wrap">
-                <a id="logo" href="http://swagger.io">swagger</a>
+                <a id="logo" href="http://mymaoni.co.ke">MyMaoni</a>
                 <form id='api_selector'>
                     <div class='input'><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="text"/></div>
                     <div class='input'><input placeholder="api_key" id="input_apiKey" name="apiKey" type="text"/></div>
