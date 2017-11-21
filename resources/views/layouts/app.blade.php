@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>My Maoni Admin</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/bower_components/select2/dist/css/select2.min.css">
@@ -152,7 +152,7 @@
 
 
     <!-- AdminLTE App -->
-    <script src="/bower_components/admin-lte/dist/js/app.min.js"></script>
+    <script src="/bower_components/admin-lte/dist/js/app.min.js" defer></script>
     <script src="/bower_components/admin-lte/plugins/datepicker/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="/bower_components/moment/min/moment.min.js"></script>
     <script type="text/javascript" src="/bower_components/chart.js/dist/Chart.min.js"></script>
