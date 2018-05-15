@@ -26,6 +26,6 @@ matrix:
 #  fast_finish: false
 
 # Customize when the notification emails are sent.
-#notifications:
+notifications:
 #    on_success: never
-#    on_failure: always
+    on_failure: always
